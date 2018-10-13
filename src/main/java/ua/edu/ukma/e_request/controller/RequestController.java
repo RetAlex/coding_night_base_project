@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ua.edu.ukma.e_request.services.interfaces.RequestService;
-import ua.edu.ukma.e_request.utils.UserContext;
 import ua.edu.ukma.e_request.utils.exceptions.RequestNotExistsException;
 
 @Controller
