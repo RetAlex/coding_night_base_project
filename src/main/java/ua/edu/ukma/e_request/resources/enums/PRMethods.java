@@ -1,5 +1,7 @@
 package ua.edu.ukma.e_request.resources.enums;
 
-public enum PRMethods {
+import java.io.Serializable;
+
+public enum PRMethods implements Serializable {
     Facebook, Email;
 }

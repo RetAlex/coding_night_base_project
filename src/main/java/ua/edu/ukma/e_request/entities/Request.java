@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import ua.edu.ukma.e_request.controller.CreateOrderController;
-import ua.edu.ukma.e_request.resources.enums.PRMethods;
+import ua.edu.ukma.e_request.resources.dto.RequestMinInfo;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -23,6 +23,28 @@ import java.util.Set;
 @Setter
 @Getter
 @NoArgsConstructor
+@SqlResultSetMapping(
+        name = "findAllRequestForUserMapping",
+        classes = @ConstructorResult(
+                targetClass = RequestMinInfo.class,
+                columns = {
+                        @ColumnResult(name = "eventName"),
+                        @ColumnResult(name = "startDateTime"),
+                        @ColumnResult(name = "finishDateTime"),
+                        @ColumnResult(name = "purpose")
+                }
+        )
+)
+@NamedNativeQuery(name = "findAllRequestForUser",
+        query = "SELECT " +
+                "    u.event_name as eventName, " +
+                "    u.start_date_time as startDateTime, " +
+                "    u.finished_data_time as finishDateTime, " +
+                "    u.puspose as purpose " +
+                "FROM " +
+                "    e_requests as u " +
+                "where  u.param1=:param1 and i.param2=:param2", resultSetMapping = "findAllRequestForUserMapping"
+)
 public class Request implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -61,7 +83,7 @@ public class Request implements Serializable {
 
     @Column(name = "purpose", columnDefinition = "TEXT")
     private String purpose;
-
+    @Column(name = "target_audience")
     private String targetAudience;
 
     @Column(name = "expected_result", columnDefinition = "TEXT")
@@ -79,7 +101,7 @@ public class Request implements Serializable {
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
-            name = "third_side_users",
+            name = "third_party_token_request",
             joinColumns = { @JoinColumn(name = "request_id") },
             inverseJoinColumns = { @JoinColumn(name = "token") }
     )
@@ -89,7 +111,7 @@ public class Request implements Serializable {
     private Set<TechRequest> techRequests = new HashSet<>();
 
     public Request(CreateOrderController.CreateRequestForm createRequestForm, long studentId) {
-        /*this.eventName = createRequestForm.getName();
+        this.eventName = createRequestForm.getName();
         this.mentor = new User(createRequestForm.getCurator());
         this.student = new User(studentId);
         this.purpose = createRequestForm.getPurpose();
@@ -100,15 +122,7 @@ public class Request implements Serializable {
         this.startDateTime = createRequestForm.getStartDate();
         this.expectedAmountOfInvolved = createRequestForm.getExpectedAmountOfInvolved();
         this.techRequests = createRequestForm.getTechRequests();
-        this.prMethods = createRequestForm.getPrMethods();
         this.prepFinishDateTime = createRequestForm.getPrepFinishDateTime();
         this.prepStartDateTime = createRequestForm.getPrepStartDateTime();
-*/
     }
-
-    @ElementCollection(targetClass = PRMethods.class, fetch = FetchType.EAGER)
-    @CollectionTable(name = "pr_methods", joinColumns = @JoinColumn(name = "reuest_id"))
-    @Column(name = "pr_methods", nullable = false)
-    @Enumerated(EnumType.STRING)
-    private Set<PRMethods> prMethods = new HashSet<>();
 }

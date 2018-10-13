@@ -10,7 +10,6 @@ import java.util.List;
 
 @Repository
 public interface RequestDAO extends JpaRepository<Request, Long> {
-
-    @Query(nativeQuery = true, name = "findAllRequestForUser")
+    @Query(name = "findAllRequestForUser")
     List<RequestMinInfo> getRequestForUser(String currentUserLogin, int page);
 }
