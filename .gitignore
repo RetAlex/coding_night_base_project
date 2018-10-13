@@ -23,3 +23,6 @@
 /dist/
 /nbdist/
 /.nb-gradle/
+
+### Local properties to avoid conflicts with credentials etc
+application-local.properties
