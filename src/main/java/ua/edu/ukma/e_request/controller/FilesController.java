@@ -1,0 +1,25 @@
+package ua.edu.ukma.e_request.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import ua.edu.ukma.e_request.services.FileStorageService;
+
+@Controller
+@RequestMapping("/e_request")
+public class FilesController {
+
+    private final FileStorageService fileStorageService;
+
+
+    public FilesController(FileStorageService fileStorageService) {
+        this.fileStorageService = fileStorageService;
+    }
+
+    @GetMapping("/upload")
+    public String renderPage(){
+        return "e_request/view/uploadfile";
+    }
+
+
+}
