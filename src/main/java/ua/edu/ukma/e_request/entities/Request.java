@@ -106,8 +106,8 @@ public class Request implements Serializable {
 */
     }
 
-    @ElementCollection(targetClass = PRMethods.class, fetch = FetchType.EAGER)
-    @CollectionTable(name = "pr_methods", joinColumns = @JoinColumn(name = "reuest_id"))
+    @ElementCollection(targetClass = PRMethods.class)
+    @CollectionTable(name = "pr_methods", joinColumns = @JoinColumn(name = "request_id"))
     @Column(name = "pr_methods", nullable = false)
     @Enumerated(EnumType.STRING)
     private Set<PRMethods> prMethods = new HashSet<>();
