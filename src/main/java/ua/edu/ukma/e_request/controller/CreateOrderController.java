@@ -1,5 +1,6 @@
 package ua.edu.ukma.e_request.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -9,6 +10,7 @@ import ua.edu.ukma.e_request.services.interfaces.RequestService;
 
 import javax.validation.Valid;
 
+@Controller
 @RequestMapping("/e_request")
 public class CreateOrderController {
     private final RequestService requestService;
