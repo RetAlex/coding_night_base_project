@@ -9,11 +9,10 @@ import java.util.List;
 
 public interface RequestService {
     /**
-     *
      * @param createRequestForm - form registration form. Until finished, class fields could be changed.
      * @return long id of request
      */
-    long createRequest(CreateOrderController.CreateRequestForm createRequestForm);
+    long createRequest(CreateOrderController.CreateRequestForm createRequestForm, long studentId);
 
     Request getRequestById(long requestId) throws RequestNotExistsException;
 
