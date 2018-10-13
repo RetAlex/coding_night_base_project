@@ -10,8 +10,7 @@ import java.util.List;
 
 @Repository
 public interface RequestDAO extends JpaRepository<Request, Long> {
-
-    @Query(nativeQuery = true, name = "findAllRequestForUser")
+    @Query(name = "findAllRequestForUser")
     List<RequestMinInfo> getRequestForUser(String currentUserLogin, int page);
 
     @Query(value = "select true from Request r where r.student.username=?1 and r.id=?2")

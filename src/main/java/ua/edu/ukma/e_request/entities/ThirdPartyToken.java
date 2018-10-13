@@ -20,6 +20,7 @@ import java.util.Set;
 @NoArgsConstructor
 public class ThirdPartyToken implements Serializable {
     @Id
+    @Column(name = "token", length = 100)
     private String token;
     @Basic
     @Column(nullable = false)
