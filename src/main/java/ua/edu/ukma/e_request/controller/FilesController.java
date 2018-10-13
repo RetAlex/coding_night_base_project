@@ -24,7 +24,6 @@ public class FilesController {
     public Model saveFiles(@RequestParam("file") MultipartFile file, Model model, @RequestParam long userId, long eventId) {
         if (file.isEmpty()) {
             model.addAttribute("error", "File is empty!");
-            file.transferTo();
             return model;
         }
         try {
