@@ -18,8 +18,6 @@ public class RequestServiceImpl implements RequestService {
 
     @Override
     public long createRequest(CreateOrderController.CreateRequestForm createRequestForm, long studentId) {
-        Request request = new Request(createRequestForm, studentId);
-        long requestId = requestDao.save(request).getId();
-        return requestId;
+        return requestDao.save(new Request(createRequestForm, studentId)).getId();
     }
 }
