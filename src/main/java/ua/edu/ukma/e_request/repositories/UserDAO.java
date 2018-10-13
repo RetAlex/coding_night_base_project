@@ -8,7 +8,7 @@ import ua.edu.ukma.e_request.entities.User;
 @Repository
 public interface UserDAO extends JpaRepository<User, Long> {
 
-    @Query(value = "select * from e_users u where u.surname=?1", nativeQuery = true)
+    @Query(value = "select * from e_users u where u.username=?1", nativeQuery = true)
     User findUserByUsername(String username);
 
 }

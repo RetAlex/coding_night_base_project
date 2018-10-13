@@ -10,6 +10,7 @@ import ua.edu.ukma.e_request.resources.dto.RequestMinInfo;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -23,27 +24,28 @@ import java.util.Set;
 @Setter
 @Getter
 @NoArgsConstructor
+@SqlResultSetMappings({
 @SqlResultSetMapping(
         name = "findAllRequestForUserMapping",
         classes = @ConstructorResult(
                 targetClass = RequestMinInfo.class,
                 columns = {
-                        @ColumnResult(name = "eventName"),
-                        @ColumnResult(name = "startDateTime"),
-                        @ColumnResult(name = "finishDateTime"),
-                        @ColumnResult(name = "purpose")
+                        @ColumnResult(name = "eventName",type = String.class),
+                        @ColumnResult(name = "startDateTime",type = Date.class),
+                        @ColumnResult(name = "finishDateTime",type = Date.class),
+                        @ColumnResult(name = "purpose",type = String.class)
                 }
         )
-)
+)})
 @NamedNativeQuery(name = "findAllRequestForUser",
         query = "SELECT " +
                 "    u.event_name as eventName, " +
                 "    u.start_date_time as startDateTime, " +
-                "    u.finished_data_time as finishDateTime, " +
-                "    u.puspose as purpose " +
+                "    u.finish_date_time as finishDateTime, " +
+                "    u.purpose as purpose " +
                 "FROM " +
-                "    e_requests as u " +
-                "where  u.param1=:param1 and i.param2=:param2", resultSetMapping = "findAllRequestForUserMapping"
+                "    e_requests as u inner join e_users e on e.user_id=u.student_id" +
+                " where e.username=:param1 limit 10 offset :param2", resultSetMapping = "findAllRequestForUserMapping"
 )
 public class Request implements Serializable {
     @Id

@@ -37,7 +37,7 @@ public class RequestServiceImpl implements RequestService {
 
     @Override
     public List<RequestMinInfo> getRequestsForUser(int page) {
-        return  requestDao.getRequestForUser(UserContext.getCurrentUserLogin(), page);
+        return  requestDao.getRequestForUser(UserContext.getCurrentUserLogin(), page*10);
     }
 
     @Override
