@@ -17,7 +17,8 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class Room implements Serializable {
     @Id
-    @Column(name = "room_name")
+    @Column(name = "room_id")
+    private Long id;
     private String name;
     private String building;
     @ManyToOne
