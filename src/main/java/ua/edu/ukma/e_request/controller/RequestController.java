@@ -21,7 +21,7 @@ public class RequestController {
 
     @GetMapping("/{requestId}")
     public String renderPage(@PathVariable("requestId") long requestId, Model model) throws RequestNotExistsException {
-        model.addAttribute("request", requestService.getRequestById(requestId));
+//        model.addAttribute("request", requestService.getRequestById(requestId));
         return "e_request/request/show";
     }
 
