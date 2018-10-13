@@ -42,6 +42,6 @@ public class RequestServiceImpl implements RequestService {
 
     @Override
     public boolean isAllowedToUpdateRequest(String username, long orderId){
-       return false;
+       return  requestDao.isAllowedToUpdate(username, orderId);
     }
 }
