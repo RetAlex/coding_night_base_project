@@ -6,21 +6,26 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by a.bondarenko on 10/13/2018.
  */
-@Entity(name = "Room")
-@Table(name = "e_rooms")
+@Entity(name = "Tech")
+@Table(name = "e_tech")
 @Setter
 @Getter
 @NoArgsConstructor
-public class Room implements Serializable {
+public class Tech implements Serializable{
     @Id
-    @Column(name = "room_name")
+    @Column(name = "tech_id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
     private String name;
-    private String building;
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User owner;
+    @OneToMany(mappedBy = "tech")
+    private Set<Request> requests = new HashSet<>();
 }

@@ -1,14 +1,23 @@
 package ua.edu.ukma.e_request.entities;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
- * Created by nasti on 10/13/2018.
+ * Created by a.bondarenko on 10/13/2018.
  */
 @Entity(name = "Request")
 @Table(name = "e_requests")
+@Setter
+@Getter
+@NoArgsConstructor
 public class Request implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -31,5 +40,6 @@ public class Request implements Serializable{
     @JoinColumn(name = "room_name")
     private Room roomName;
     private String thirdSide = null;
-
+    @OneToMany(mappedBy = "request")
+    private Set<TechRequest> techRequests = new HashSet<>();
 }
