@@ -13,6 +13,7 @@
 		<link rel="stylesheet" type="text/css" href="/assets/css/component.css" />
 		<link rel="stylesheet" type="text/css" href="/assets/css/cs-select.css" />
 		<link rel="stylesheet" type="text/css" href="/assets/css/cs-skin-boxes.css" />
+		<link rel="stylesheet" type="text/css" href="/assets/css/picker.min.css" />
 		<script src="/assets/js/modernizr.custom.js"></script>
 	</head>
 	<body>
@@ -37,19 +38,19 @@
 							<label class="fs-field-label fs-anim-upper" for="q2">Дата початку заходу</label>
 							<input class="fs-anim-lower" id="q2" name="q2" type="text" placeholder="23/10/18 12:30" required/>
 
-                            <label class="fs-field-label fs-anim-upper" for="q2">Дата кінця заходу</label>
-                            <input class="fs-anim-lower" id="q2" name="q2" type="text" placeholder="24/10/18 14:30" required/>
+                            <label class="fs-field-label fs-anim-upper" for="q2-2">Дата кінця заходу</label>
+                            <input class="fs-anim-lower" id="q2-2" name="q2-2" type="text" placeholder="24/10/18 14:30" required/>
 						</li>
 						<li data-input-trigger>
 							<label class="fs-field-label fs-anim-upper" for="q3">PR</label>
 							<div class="fs-radio-group fs-radio-custom clearfix fs-anim-lower">
-								<span><input id="q3b" name="q3" type="radio" value="conversion"/><label for="q3b" class="radio-conversion">Sell things</label></span>
-								<span><input id="q3c" name="q3" type="radio" value="social"/><label for="q3c" class="radio-social">Become famous</label></span>
-								<span><input id="q3a" name="q3" type="radio" value="mobile"/><label for="q3a" class="radio-mobile">Mobile market</label></span>
+								<span><input id="q3b" name="q3" type="checkbox" value="conversion"/><label for="q3b" class="radio-conversion">Facebook</label></span>
+								<span><input id="q3c" name="q3" type="checkbox" value="social"/><label for="q3c" class="radio-social">Viber</label></span>
+								<span><input id="q3a" name="q3" type="checkbox" value="mobile"/><label for="q3a" class="radio-mobile">Telegram</label></span>
 							</div>
 						</li>
 						<li data-input-trigger>
-							<label class="fs-field-label fs-anim-upper" data-info="We'll make sure to use it all over">Choose a color for your website.</label>
+							<label class="fs-field-label fs-anim-upper" data-info="We'll make sure to use it all over">Опис заходу</label>
 							<select class="cs-select cs-skin-boxes fs-anim-lower">
 								<option value="" disabled selected>Pick a color</option>
 								<option value="#588c75" data-class="color-588c75">#588c75</option>
@@ -75,12 +76,16 @@
 							</select>
 						</li>
 						<li>
-							<label class="fs-field-label fs-anim-upper" for="q4">Describe how you imagine your new website</label>
-							<textarea class="fs-anim-lower" id="q4" name="q4" placeholder="Describe here"></textarea>
+							<label class="fs-field-label fs-anim-upper" for="q5">Кількість учасників/глядачів</label>
+							<input class="fs-anim-lower" id="q5" name="q5" type="number" placeholder="1" step="1" min="1" required/>
 						</li>
 						<li>
-							<label class="fs-field-label fs-anim-upper" for="q5">What's your budget?</label>
-							<input class="fs-mark fs-anim-lower" id="q5" name="q5" type="number" placeholder="1000" step="100" min="100"/>
+							<label class="fs-field-label fs-anim-upper" for="q6">What's your budget?</label>
+							<input class="fs-mark fs-anim-lower" id="q6" name="q6" type="number" placeholder="1000" step="100" min="100"/>
+						</li>
+						<li>
+							<label class="fs-field-label fs-anim-upper" for="q4">Опис заходу</label>
+							<textarea class="fs-anim-lower" id="q4" name="q4" placeholder="Describe here"></textarea>
 						</li>
 					</ol><!-- /fs-fields -->
 					<button class="fs-submit" type="submit">Send answers</button>
@@ -103,8 +108,19 @@
 		</div><!-- /container -->
 		<script src="/assets/js/classie.js"></script>
 		<script src="/assets/js/selectFx.js"></script>
+		<script src="/assets/js/picker.min.js"></script>
 		<script src="/assets/js/fullscreenForm.js"></script>
 		<script>
+            var dateFrom = document.getElementById('q2');
+            var dateTo = document.getElementById('q2-2');
+            var pickerFrom = new Picker(dateFrom, {
+                format: 'YYYY/MM/DD HH:mm',
+            });
+
+            var pickerTo = new Picker(dateTo, {
+                format: 'YYYY/MM/DD HH:mm',
+            });
+
 			(function() {
 				var formWrap = document.getElementById( 'fs-form-wrap' );
 

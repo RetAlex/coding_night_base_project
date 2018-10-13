@@ -451,7 +451,7 @@
 		var message = '';
 		switch( err ) {
 			case 'NOVAL' : 
-				message = 'Please fill the field before continuing';
+				message = 'Заповніть усі поля, щоб продовжити';
 				break;
 			case 'INVALIDEMAIL' : 
 				message = 'Please fill a valid email address';
