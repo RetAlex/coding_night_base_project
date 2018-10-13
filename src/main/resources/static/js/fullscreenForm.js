@@ -191,11 +191,11 @@
 						input.addEventListener( 'change', function() { self._nextField(); } );
 						break;
 
-					case 'input' : 
+/*					case 'input' :
 						[].slice.call( fld.querySelectorAll( 'input[type="radio"]' ) ).forEach( function( inp ) {
 							inp.addEventListener( 'change', function(ev) { self._nextField(); } );
-						} ); 
-						break;
+						} );
+						break;*/
 
 					/*
 					// for our custom select we would do something like:
