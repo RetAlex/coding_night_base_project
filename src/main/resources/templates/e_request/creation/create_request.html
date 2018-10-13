@@ -1,44 +1,48 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-		<meta name="viewport" content="width=device-width, initial-scale=1"> 
-		<title>Fullscreen Form Interface</title>
-		<meta name="description" content="Fullscreen Form Interface: A distraction-free form concept with fancy animations" />
-		<meta name="keywords" content="fullscreen form, css animations, distraction-free, web design" />
-		<link rel="shortcut icon" href="../favicon.ico">
-		<link rel="stylesheet" type="text/css" href="/assets/css/normalize.css" />
-		<link rel="stylesheet" type="text/css" href="/assets/css/demo.css" />
-		<link rel="stylesheet" type="text/css" href="/assets/css/component.css" />
-		<link rel="stylesheet" type="text/css" href="/assets/css/cs-select.css" />
-		<link rel="stylesheet" type="text/css" href="/assets/css/cs-skin-boxes.css" />
-		<link rel="stylesheet" type="text/css" href="/assets/css/picker.min.css" />
-		<script src="/assets/js/modernizr.custom.js"></script>
-	</head>
-	<body>
-		<div class="container">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fullscreen Form Interface</title>
+    <meta name="description"
+          content="Fullscreen Form Interface: A distraction-free form concept with fancy animations"/>
+    <meta name="keywords" content="fullscreen form, css animations, distraction-free, web design"/>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/assets/css/normalize.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/demo.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/component.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/cs-select.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/cs-skin-boxes.css"/>
+    <link rel="stylesheet" type="text/css" href="/assets/css/picker.min.css"/>
+    <script src="/assets/js/modernizr.custom.js"></script>
+</head>
+<body>
+<div class="container">
 
-			<div class="fs-form-wrap" id="fs-form-wrap">
-				<div class="fs-title">
-					<h1>Project Worksheet</h1>
-					<div class="codrops-top">
-						<a class="codrops-icon codrops-icon-prev" href="http://tympanus.net/Development/NotificationStyles/"><span>Previous Demo</span></a>
-						<a class="codrops-icon codrops-icon-drop" href="http://tympanus.net/codrops/?p=19520"><span>Back to the Codrops Article</span></a>
-						<a class="codrops-icon codrops-icon-info" href="#"><span>This is a demo for a fullscreen form</span></a>
-					</div>
-				</div>
-				<form id="myform" class="fs-form fs-form-full" autocomplete="off">
-					<ol class="fs-fields">
-						<li>
-							<label class="fs-field-label fs-anim-upper" for="q1">Назва заходу</label>
-							<input class="fs-anim-lower" id="q1" name="q1" type="text" placeholder="Сходить пивасика попить" required/>
-						</li>
-						<li>
-							<div>
-								<label class="fs-field-label fs-anim-upper" for="q2">Дата початку заходу</label>
-								<input class="fs-anim-lower" id="q2" name="q2" type="text" placeholder="23/10/18 12:30" required/>
-							</div>
+    <div class="fs-form-wrap" id="fs-form-wrap">
+        <div class="fs-title">
+            <h1>Project Worksheet</h1>
+            <div class="codrops-top">
+                <a class="codrops-icon codrops-icon-prev"
+                   href="http://tympanus.net/Development/NotificationStyles/"><span>Previous Demo</span></a>
+                <a class="codrops-icon codrops-icon-drop" href="http://tympanus.net/codrops/?p=19520"><span>Back to the Codrops Article</span></a>
+                <a class="codrops-icon codrops-icon-info" href="#"><span>This is a demo for a fullscreen form</span></a>
+            </div>
+        </div>
+        <form id="myform" class="fs-form fs-form-full" autocomplete="off">
+            <ol class="fs-fields">
+                <li>
+                    <label class="fs-field-label fs-anim-upper" for="q1">Назва заходу</label>
+                    <input class="fs-anim-lower" id="q1" name="q1" type="text" placeholder="Сходить пивасика попить"
+                           required/>
+                </li>
+                <li>
+                    <div>
+                        <label class="fs-field-label fs-anim-upper" for="q2">Дата початку заходу</label>
+                        <input class="fs-anim-lower" id="q2" name="q2" type="text" placeholder="23/10/18 12:30"
+                               required/>
+                    </div>
 
                             <div>
 								<label class="fs-field-label fs-anim-upper" for="q2-2">Дата кінця заходу</label>
@@ -93,67 +97,91 @@
 						<li>
 							<label class="fs-field-label fs-anim-upper" for="q5">Кількість учасників/глядачів</label>
 							<input class="fs-anim-lower" id="q5" name="q5" type="number" placeholder="1" step="1" min="1" required/>
-						</li>
-						<li>
-							<label class="fs-field-label fs-anim-upper" for="q6">What's your budget?</label>
-							<input class="fs-mark fs-anim-lower" id="q6" name="q6" type="number" placeholder="1000" step="100" min="100"/>
-						</li>
-						<li>
-							<label class="fs-field-label fs-anim-upper" for="q4">Опис заходу</label>
-							<textarea class="fs-anim-lower" id="q4" name="q4" placeholder="Describe here"></textarea>
-						</li>
-					</ol><!-- /fs-fields -->
-					<button class="fs-submit" type="submit">Send answers</button>
-				</form><!-- /fs-form -->
-			</div><!-- /fs-form-wrap -->
 
-			<!-- Related demos -->
-			<div class="related">
-				<p>If you enjoyed this demo you might also like:</p>
-				<a href="http://tympanus.net/Development/MinimalForm/">
-					<img src="img/relatedposts/minimalform1-300x162.png" />
-					<h3>Minimal Form Interface</h3>
-				</a>
-				<a href="http://tympanus.net/Development/ButtonComponentMorph/">
-					<img src="img/relatedposts/MorphingButtons-300x162.png" />
-					<h3>Morphing Buttons Concept</h3>
-				</a>
-			</div>
 
-		</div><!-- /container -->
-		<script src="/assets/js/classie.js"></script>
-		<script src="/assets/js/selectFx.js"></script>
-		<script src="/assets/js/picker.min.js"></script>
-		<script src="/assets/js/fullscreenForm.js"></script>
-		<script>
-            var dateFrom = document.getElementById('q2');
-            var dateTo = document.getElementById('q2-2');
-            var pickerFrom = new Picker(dateFrom, {
-                format: 'YYYY/MM/DD HH:mm',
+                    <label class="fs-field-label fs-anim-upper" for="q7b">Цільова вудиторія</label>
+                    <input class="fs-anim-lower" id="q7b" name="q2" type="text" placeholder="Цей захід для..."
+                           required/>
+                </li>
+                <li>
+                    <label class="fs-field-label fs-anim-upper" for="q6">Потрібна репетиція</label>
+                    <input class="fs-anim-lower" onclick="needRepetition()" id="q6" name="q6" type="checkbox"/>
+
+                    <div class="fs-radio-group fs-radio-custom clearfix fs-anim-lower" id="repetition-container">
+                    </div>
+                </li>
+                <li>
+                    <label class="fs-field-label fs-anim-upper" for="q7a">Мета</label>
+                    <input class="fs-anim-lower" id="q7a" name="q2" type="text" placeholder="Мета" required/>
+
+
+                    <label class="fs-field-label fs-anim-upper" for="q7c">Очікуваний результат на НаУКМА</label>
+                    <textarea class="fs-anim-lower" id="q7c" name="q4" placeholder="Я очікую..."></textarea>
+                </li>
+            </ol><!-- /fs-fields -->
+            <button class="fs-submit" type="submit">Send answers</button>
+        </form><!-- /fs-form -->
+    </div><!-- /fs-form-wrap -->
+
+    <!-- Related demos -->
+    <div class="related">
+        <p>If you enjoyed this demo you might also like:</p>
+        <a href="http://tympanus.net/Development/MinimalForm/">
+            <img src="img/relatedposts/minimalform1-300x162.png"/>
+            <h3>Minimal Form Interface</h3>
+        </a>
+        <a href="http://tympanus.net/Development/ButtonComponentMorph/">
+            <img src="img/relatedposts/MorphingButtons-300x162.png"/>
+            <h3>Morphing Buttons Concept</h3>
+        </a>
+    </div>
+
+</div><!-- /container -->
+<script src="/assets/js/classie.js"></script>
+<script src="/assets/js/selectFx.js"></script>
+<script src="/assets/js/picker.min.js"></script>
+<script src="/assets/js/fullscreenForm.js"></script>
+<script>
+    var dateFrom = document.getElementById('q2');
+    var dateTo = document.getElementById('q2-2');
+    var pickerFrom = new Picker(dateFrom, {
+        format: 'YYYY/MM/DD HH:mm',
+    });
+
+    var pickerTo = new Picker(dateTo, {
+        format: 'YYYY/MM/DD HH:mm',
+    });
+
+    function needRepetition() {
+        const input = document.getElementById('q6');
+        const container = document.getElementById('repetition-container');
+
+
+        if (input.checked) {
+            container.innerHTML = "<span><input id=\"q3b\" name=\"q3\" type=\"checkbox\" value=\"conversion\"/><label for=\"q3b\" class=\"radio-conversion\">Facebook</label></span>\n" +
+                "<span><input id=\"q3c\" name=\"q3\" type=\"checkbox\" value=\"social\"/><label for=\"q3c\" class=\"radio-social\">Viber</label></span>\n" +
+                "<span><input id=\"q3a\" name=\"q3\" type=\"checkbox\" value=\"mobile\"/><label for=\"q3a\" class=\"radio-mobile\">Telegram</label></span>\n";
+        } else container.innerHTML = "";
+    }
+
+    (function () {
+        var formWrap = document.getElementById('fs-form-wrap');
+
+        [].slice.call(document.querySelectorAll('select.cs-select')).forEach(function (el) {
+            new SelectFx(el, {
+                stickyPlaceholder: false,
+                onChange: function (val) {
+                    document.querySelector('span.cs-placeholder').style.backgroundColor = val;
+                }
             });
+        });
 
-            var pickerTo = new Picker(dateTo, {
-                format: 'YYYY/MM/DD HH:mm',
-            });
-
-			(function() {
-				var formWrap = document.getElementById( 'fs-form-wrap' );
-
-				[].slice.call( document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {	
-					new SelectFx( el, {
-						stickyPlaceholder: false,
-						onChange: function(val){
-							document.querySelector('span.cs-placeholder').style.backgroundColor = val;
-						}
-					});
-				} );
-
-				new FForm( formWrap, {
-					onReview : function() {
-						classie.add( document.body, 'overview' ); // for demo purposes only
-					}
-				} );
-			})();
-		</script>
-	</body>
+        new FForm(formWrap, {
+            onReview: function () {
+                classie.add(document.body, 'overview'); // for demo purposes only
+            }
+        });
+    })();
+</script>
+</body>
 </html>

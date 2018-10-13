@@ -6,7 +6,8 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 
 @SpringBootApplication(scanBasePackages = "ua.edu.ukma.*")
 @EnableConfigurationProperties
-public class EOssApplication {
+public class  EOssApplication {
+
 	public static void main(String[] args) {
 		SpringApplication.run(EOssApplication.class, args);
 	}

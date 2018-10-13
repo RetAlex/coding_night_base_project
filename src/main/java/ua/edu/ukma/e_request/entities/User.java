@@ -17,7 +17,7 @@ import java.io.Serializable;
 @Setter
 @Getter
 @NoArgsConstructor
-public class User implements Serializable{
+public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
@@ -32,4 +32,8 @@ public class User implements Serializable{
     private String firstName;
     private String middleName;
     private String lastName;
+
+    public User(long userId) {
+        this.id = userId;
+    }
 }
