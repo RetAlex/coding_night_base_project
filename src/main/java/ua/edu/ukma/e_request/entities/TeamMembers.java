@@ -9,16 +9,16 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 /**
- * Entity represents Team field in request form
+ * Entity represents Team member field in request form
  *
  * Created by a.bondarenko on 10/13/2018.
  */
-@Entity(name = "Team")
-@Table(name = "e_teams")
+@Entity(name = "TeamUsers")
+@Table(name = "e_team_members")
 @Setter
 @Getter
 @NoArgsConstructor
-public class Team implements Serializable{
+public class TeamMembers implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "team_id")
