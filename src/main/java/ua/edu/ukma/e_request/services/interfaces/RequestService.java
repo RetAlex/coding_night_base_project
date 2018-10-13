@@ -16,7 +16,7 @@ public interface RequestService {
 
     Request getRequestById(long requestId) throws RequestNotExistsException;
 
-    List<RequestMinInfo> getRequestsForUser(String username, int page);
+    List<RequestMinInfo> getRequestsForUser( int page);
 
     /**
      * This method checks if specified user can update specified order
