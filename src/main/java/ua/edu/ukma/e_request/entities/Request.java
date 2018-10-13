@@ -6,7 +6,6 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import ua.edu.ukma.e_request.controller.CreateOrderController;
 import ua.edu.ukma.e_request.resources.dto.RequestMinInfo;
-import ua.edu.ukma.e_request.resources.enums.PRMethods;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -112,7 +111,7 @@ public class Request implements Serializable {
     private Set<TechRequest> techRequests = new HashSet<>();
 
     public Request(CreateOrderController.CreateRequestForm createRequestForm, long studentId) {
-        /*this.eventName = createRequestForm.getName();
+        this.eventName = createRequestForm.getName();
         this.mentor = new User(createRequestForm.getCurator());
         this.student = new User(studentId);
         this.purpose = createRequestForm.getPurpose();
@@ -123,15 +122,7 @@ public class Request implements Serializable {
         this.startDateTime = createRequestForm.getStartDate();
         this.expectedAmountOfInvolved = createRequestForm.getExpectedAmountOfInvolved();
         this.techRequests = createRequestForm.getTechRequests();
-        this.prMethods = createRequestForm.getPrMethods();
         this.prepFinishDateTime = createRequestForm.getPrepFinishDateTime();
         this.prepStartDateTime = createRequestForm.getPrepStartDateTime();
-*/
     }
-
-    @ElementCollection(targetClass = PRMethods.class)
-    @CollectionTable(name = "pr_methods", joinColumns = @JoinColumn(name = "request_id"))
-    @Column(name = "pr_methods", nullable = false)
-    @Enumerated(EnumType.STRING)
-    private Set<PRMethods> prMethods = new HashSet<>();
 }
