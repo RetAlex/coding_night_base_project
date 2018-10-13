@@ -3,6 +3,7 @@ package ua.edu.ukma.e_request.services.implementations;
 import org.springframework.stereotype.Service;
 import ua.edu.ukma.e_request.controller.CreateOrderController;
 import ua.edu.ukma.e_request.entities.Request;
+import ua.edu.ukma.e_request.entities.User;
 import ua.edu.ukma.e_request.repositories.RequestDAO;
 import ua.edu.ukma.e_request.repositories.UserDAO;
 import ua.edu.ukma.e_request.resources.dto.RequestMinInfo;
