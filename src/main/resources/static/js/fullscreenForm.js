@@ -191,10 +191,10 @@
 						input.addEventListener( 'change', function() { self._nextField(); } );
 						break;
 
-					case 'input' : 
+					case 'input' :
 						[].slice.call( fld.querySelectorAll( 'input[type="radio"]' ) ).forEach( function( inp ) {
 							inp.addEventListener( 'change', function(ev) { self._nextField(); } );
-						} ); 
+						} );
 						break;
 
 					/*
@@ -403,8 +403,6 @@
 		let fld = this.fields[ this.current ],
 			input = fld.querySelectorAll( 'input[required]' ) || fld.querySelectorAll( 'textarea[required]' ) || fld.querySelectorAll( 'select[required]' ),
 			error;
-
-		console.log(this.fields[this.current])
 
 		for (const f of input) {
 			let error = FForm.prototype._validateField(f);
