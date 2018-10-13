@@ -10,7 +10,6 @@ import ua.edu.ukma.e_request.resources.enums.PRMethods;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -80,9 +79,13 @@ public class Request implements Serializable {
     @Column(nullable = false)
     private User mentor;
 
-    @ManyToOne
-    @JoinColumn(name = "token")
-    private ThirdPartyToken thirdSide = null;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "Third_Side_Users",
+            joinColumns = { @JoinColumn(name = "request_id") },
+            inverseJoinColumns = { @JoinColumn(name = "token") }
+    )
+    private Set<ThirdPartyToken> thirdSides = new HashSet<>();
 
     @OneToMany(mappedBy = "request")
     private Set<TechRequest> techRequests = new HashSet<>();
