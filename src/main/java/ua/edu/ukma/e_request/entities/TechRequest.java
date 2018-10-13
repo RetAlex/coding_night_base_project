@@ -19,9 +19,11 @@ public class TechRequest implements Serializable{
     @Id
     @Column(name = "tech_request_id")
     private Long id;
+
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "request_id")
     private Request request;
+
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "tech_id")
     private Tech tech;
