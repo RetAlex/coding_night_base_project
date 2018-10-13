@@ -1,6 +1,7 @@
 package ua.edu.ukma.e_request.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -33,7 +34,11 @@ public class CreateOrderController {
     }
 
     @PostMapping("/create")
-    public String createRequest(@Valid @ModelAttribute CreateRequestForm createRequestForm, BindingResult bindingResult){
+    public String createRequest(@Valid @ModelAttribute CreateRequestForm createRequestForm, BindingResult bindingResult, Model model){
+        if(bindingResult.hasErrors()){
+            model.addAttribute("errors", bindingResult.getAllErrors());
+        }
+        requestService.createRequest(createRequestForm);
         return "e_request/creation/request_created";
     }
 
@@ -50,7 +55,6 @@ public class CreateOrderController {
         @NotNull
         @InFuture
         private Date endDate;
-        @NotNull
         private List<PRMethods> prMethods;
         //TODO Change to team entity object
         private List<Object> team;
