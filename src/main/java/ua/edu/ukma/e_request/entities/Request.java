@@ -101,7 +101,7 @@ public class Request implements Serializable {
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
-            name = "third_side_users",
+            name = "third_party_token_request",
             joinColumns = { @JoinColumn(name = "request_id") },
             inverseJoinColumns = { @JoinColumn(name = "token") }
     )
