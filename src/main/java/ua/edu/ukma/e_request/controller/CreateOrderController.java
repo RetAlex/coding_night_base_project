@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ua.edu.ukma.e_request.entities.Room;
-import ua.edu.ukma.e_request.entities.Team;
 import ua.edu.ukma.e_request.entities.TechRequest;
 import ua.edu.ukma.e_request.resources.enums.PRMethods;
 import ua.edu.ukma.e_request.resources.enums.Role;
@@ -18,13 +17,11 @@ import ua.edu.ukma.e_request.services.interfaces.RequestService;
 import ua.edu.ukma.e_request.utils.validator.InFuture;
 import ua.edu.ukma.e_request.utils.validator.UserRole;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.sql.Timestamp;
-import java.util.*;
+import java.util.Set;
 
 @Controller
 @RequestMapping("/e_request")
