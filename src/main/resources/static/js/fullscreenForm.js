@@ -400,50 +400,62 @@
 
 	// TODO: this is a very basic validation function. Only checks for required fields..
 	FForm.prototype._validade = function() {
-		var fld = this.fields[ this.current ],
-			input = fld.querySelector( 'input[required]' ) || fld.querySelector( 'textarea[required]' ) || fld.querySelector( 'select[required]' ),
+		let fld = this.fields[ this.current ],
+			input = fld.querySelectorAll( 'input[required]' ) || fld.querySelectorAll( 'textarea[required]' ) || fld.querySelectorAll( 'select[required]' ),
 			error;
 
-		if( !input ) return true;
+		console.log(this.fields[this.current])
 
-		switch( input.tagName.toLowerCase() ) {
-			case 'input' : 
-				if( input.type === 'radio' || input.type === 'checkbox' ) {
-					var checked = 0;
-					[].slice.call( fld.querySelectorAll( 'input[type="' + input.type + '"]' ) ).forEach( function( inp ) {
-						if( inp.checked ) {
-							++checked;
-						}
-					} );
-					if( !checked ) {
-						error = 'NOVAL';
-					}
-				}
-				else if( input.value === '' ) {
-					error = 'NOVAL';
-				}
-				break;
+		for (const f of input) {
+			let error = FForm.prototype._validateField(f);
 
-			case 'select' : 
-				// assuming here '' or '-1' only
-				if( input.value === '' || input.value === '-1' ) {
-					error = 'NOVAL';
-				}
-				break;
-
-			case 'textarea' :
-				if( input.value === '' ) {
-					error = 'NOVAL';
-				}
-				break;
+            if( error != undefined ) {
+                this._showError( error );
+                return false;
+            }
 		}
 
-		if( error != undefined ) {
-			this._showError( error );
-			return false;
-		}
+        return true;
 
-		return true;
+	}
+
+	FForm.prototype._validateField = function(input) {
+		var error;
+        if( !input ) return true;
+
+        switch( input.tagName.toLowerCase() ) {
+            case 'input' :
+                if( input.type === 'radio' || input.type === 'checkbox' ) {
+                    var checked = 0;
+                    [].slice.call( fld.querySelectorAll( 'input[type="' + input.type + '"]' ) ).forEach( function( inp ) {
+                        if( inp.checked ) {
+                            ++checked;
+                        }
+                    } );
+                    if( !checked ) {
+                        error = 'NOVAL';
+                    }
+                }
+                else if( input.value === '' ) {
+                    error = 'NOVAL';
+                }
+                break;
+
+            case 'select' :
+                // assuming here '' or '-1' only
+                if( input.value === '' || input.value === '-1' ) {
+                    error = 'NOVAL';
+                }
+                break;
+
+            case 'textarea' :
+                if( input.value === '' ) {
+                    error = 'NOVAL';
+                }
+                break;
+        }
+
+        return error;
 	}
 
 	// TODO
