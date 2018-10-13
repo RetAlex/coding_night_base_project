@@ -35,4 +35,9 @@ public class RequestServiceImpl implements RequestService {
     public List<RequestMinInfo> getRequestsForUser(int page) {
         return  requestDao.getRequestForUser(UserContext.getCurrentUserLogin(), page);
     }
+
+    @Override
+    public boolean isAllowedToUpdateRequest(String username, long orderId){
+        return true;
+    }
 }
