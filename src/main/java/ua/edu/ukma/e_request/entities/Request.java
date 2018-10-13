@@ -69,14 +69,12 @@ public class Request implements Serializable {
 
     private Boolean isSecurityNeeded;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
     @JoinColumn(name = "user_id")
-    @Column(nullable = false)
     private User student;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
     @JoinColumn(name = "user_id")
-    @Column(nullable = false)
     private User mentor;
 
     @ManyToMany(cascade = CascadeType.ALL)
@@ -91,7 +89,7 @@ public class Request implements Serializable {
     private Set<TechRequest> techRequests = new HashSet<>();
 
     public Request(CreateOrderController.CreateRequestForm createRequestForm, long studentId) {
-        this.eventName = createRequestForm.getName();
+        /*this.eventName = createRequestForm.getName();
         this.mentor = new User(createRequestForm.getCurator());
         this.student = new User(studentId);
         this.purpose = createRequestForm.getPurpose();
@@ -105,7 +103,7 @@ public class Request implements Serializable {
         this.prMethods = createRequestForm.getPrMethods();
         this.prepFinishDateTime = createRequestForm.getPrepFinishDateTime();
         this.prepStartDateTime = createRequestForm.getPrepStartDateTime();
-
+*/
     }
 
     @ElementCollection(targetClass = PRMethods.class, fetch = FetchType.EAGER)
