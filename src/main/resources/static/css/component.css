@@ -354,16 +354,31 @@ button.fs-continue,
 	background-image: url(../img/facebook.svg);
 }
 
+.fs-fields .fs-radio-custom label.radio-museum::after {
+	background-image: url(../img/museum.svg);
+}
+
+.fs-fields .fs-radio-custom label.radio-art::after {
+
+	background-image: url(../img/tribune.svg);
+}
+
+.fs-fields .fs-radio-custom label.radio-library::after {
+	background-image: url(../img/open-book.svg);
+}
+
+.fs-fields .fs-radio-custom label.radio-room::after {
+	background-image: url(../img/education.svg);
+}
+
 .fs-fields .fs-radio-custom label:hover::after,
 .fs-fields input[type="radio"]:focus + label::after,
 .fs-fields input[type="radio"]:checked + label::after {
 	opacity: 1;
 }
-.fs-fields input[type="checkbox"] {
-	opacity: 0;
-	-moz-appearance: none;
-	-webkit-appearance: none;
-}
+
+
+
 
 .fs-fields .fs-radio-custom label:hover::after,
 .fs-fields input[type="checkbox"]:focus + label::after,
