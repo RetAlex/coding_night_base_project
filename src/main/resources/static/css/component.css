@@ -343,20 +343,31 @@ button.fs-continue,
 }
 
 .fs-fields .fs-radio-custom label.radio-mobile::after {
-	background-image: url(../img/mobile.svg);
+	background-image: url(../img/telegram.svg);
 }
 
 .fs-fields .fs-radio-custom label.radio-social::after {
-	background-image: url(../img/social.svg);
+	background-image: url(../img/viber.svg);
 }
 
 .fs-fields .fs-radio-custom label.radio-conversion::after {
-	background-image: url(../img/conversion.svg);
+	background-image: url(../img/facebook.svg);
 }
 
 .fs-fields .fs-radio-custom label:hover::after,
 .fs-fields input[type="radio"]:focus + label::after,
 .fs-fields input[type="radio"]:checked + label::after {
+	opacity: 1;
+}
+.fs-fields input[type="checkbox"] {
+	opacity: 0;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+}
+
+.fs-fields .fs-radio-custom label:hover::after,
+.fs-fields input[type="checkbox"]:focus + label::after,
+.fs-fields input[type="checkbox"]:checked + label::after {
 	opacity: 1;
 }
 
