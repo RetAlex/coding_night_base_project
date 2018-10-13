@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import ua.edu.ukma.e_request.controller.CreateOrderController;
+import ua.edu.ukma.e_request.resources.dto.RequestMinInfo;
 import ua.edu.ukma.e_request.resources.enums.PRMethods;
 
 import javax.persistence.*;
@@ -23,6 +24,28 @@ import java.util.Set;
 @Setter
 @Getter
 @NoArgsConstructor
+@SqlResultSetMapping(
+        name = "findAllRequestForUserMapping",
+        classes = @ConstructorResult(
+                targetClass = RequestMinInfo.class,
+                columns = {
+                        @ColumnResult(name = "eventName"),
+                        @ColumnResult(name = "startDateTime"),
+                        @ColumnResult(name = "finishDateTime"),
+                        @ColumnResult(name = "purpose")
+                }
+        )
+)
+@NamedNativeQuery(name = "findAllRequestForUser",
+        query = "SELECT " +
+                "    u.event_name as eventName, " +
+                "    u.start_date_time as startDateTime, " +
+                "    u.finished_data_time as finishDateTime, " +
+                "    u.puspose as purpose " +
+                "FROM " +
+                "    e_requests as u " +
+                "where  u.param1=:param1 and i.param2=:param2", resultSetMapping = "findAllRequestForUserMapping"
+)
 public class Request implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
