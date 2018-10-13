@@ -7,8 +7,6 @@ import ua.edu.ukma.e_request.resources.enums.Role;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * Test User instance
@@ -24,18 +22,14 @@ public class User implements Serializable{
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
     private Long id;
+
     @Enumerated(EnumType.STRING)
     @Column(length = 8)
     private Role role;
+
     private String email;
+
     private String firstName;
     private String middleName;
     private String lastName;
-    @ManyToMany(cascade = { CascadeType.ALL })
-    @JoinTable(
-            name = "team_users",
-            joinColumns = { @JoinColumn(name = "user_id") },
-            inverseJoinColumns = { @JoinColumn(name = "team_id") }
-    )
-    private Set<Team> teams = new HashSet<>();
 }
