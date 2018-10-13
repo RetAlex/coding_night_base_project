@@ -33,6 +33,8 @@ public class User implements Serializable {
     private String middleName;
     private String lastName;
 
+    private String username;
+
     public User(long userId) {
         this.id = userId;
     }

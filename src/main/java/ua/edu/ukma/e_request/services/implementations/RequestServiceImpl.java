@@ -1,10 +1,10 @@
 package ua.edu.ukma.e_request.services.implementations;
 
-import org.springframework.security.web.firewall.RequestRejectedException;
 import org.springframework.stereotype.Service;
 import ua.edu.ukma.e_request.controller.CreateOrderController;
 import ua.edu.ukma.e_request.entities.Request;
 import ua.edu.ukma.e_request.repositories.RequestDAO;
+import ua.edu.ukma.e_request.repositories.UserDAO;
 import ua.edu.ukma.e_request.resources.dto.RequestMinInfo;
 import ua.edu.ukma.e_request.services.interfaces.RequestService;
 import ua.edu.ukma.e_request.utils.UserContext;
@@ -17,8 +17,11 @@ public class RequestServiceImpl implements RequestService {
 
     private final RequestDAO requestDao;
 
-    public RequestServiceImpl(RequestDAO requestDao) {
+    private final UserDAO userDAO;
+
+    public RequestServiceImpl(RequestDAO requestDao, UserDAO userDAO) {
         this.requestDao = requestDao;
+        this.userDAO = userDAO;
     }
 
     @Override
@@ -34,5 +37,10 @@ public class RequestServiceImpl implements RequestService {
     @Override
     public List<RequestMinInfo> getRequestsForUser(int page) {
         return  requestDao.getRequestForUser(UserContext.getCurrentUserLogin(), page);
+    }
+
+    @Override
+    public boolean isAllowedToUpdateRequest(String username, long orderId){
+       return false;
     }
 }
