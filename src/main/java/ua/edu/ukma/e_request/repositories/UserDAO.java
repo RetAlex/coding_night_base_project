@@ -10,4 +10,5 @@ public interface UserDAO extends JpaRepository<User, Long> {
 
     @Query(value = "select * from e_users u where u.surname=?1", nativeQuery = true)
     User findUserByUsername(String username);
+
 }
