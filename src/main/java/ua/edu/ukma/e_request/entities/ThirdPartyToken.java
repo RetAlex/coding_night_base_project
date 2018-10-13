@@ -7,6 +7,8 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by nasti on 10/13/2018.
@@ -22,4 +24,7 @@ public class ThirdPartyToken implements Serializable {
     @Basic
     @Column(nullable = false)
     private Timestamp expirationDateTime;
+
+    @ManyToMany(mappedBy = "thirdSides")
+    private Set<Request> requests = new HashSet<>();
 }

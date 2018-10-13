@@ -6,8 +6,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * Created by a.bondarenko on 10/13/2018.
@@ -26,6 +24,4 @@ public class Tech implements Serializable{
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User owner;
-    @OneToMany(mappedBy = "tech")
-    private Set<Request> requests = new HashSet<>();
 }
