@@ -21,13 +21,12 @@ import java.sql.Timestamp;
 )
 @NamedNativeQuery(name = "findAllRequestForUser",
         query = "SELECT " +
-                "    u.eventName as " +
-                "    u.last_name as userLastName, " +
-                "    " +
+                "    u.event_name as eventName, " +
+                "    u.start_date_time as startDateTime, " +
+                "    u.finished_data_time as finishDateTime, " +
+                "    u.puspose as purpose " +
                 "FROM " +
-                "    invoice as i " +
-                "JOIN user as u on i.user_id=u.id " +
-                "LEFT JOIN subscription_package as s on i.subscription_package_id=s.id " +
+                "    e_requests as u " +
                 "where  u.param1=:param1 and i.param2=:param2"
 )
 @Data
