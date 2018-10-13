@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import ua.edu.ukma.e_request.entities.Team;
 import ua.edu.ukma.e_request.resources.enums.PRMethods;
+import ua.edu.ukma.e_request.resources.enums.Role;
 import ua.edu.ukma.e_request.services.interfaces.RequestService;
 import ua.edu.ukma.e_request.utils.validator.InFuture;
 import ua.edu.ukma.e_request.utils.validator.UserRole;
@@ -57,9 +59,9 @@ public class CreateOrderController {
         private Date endDate;
         private List<PRMethods> prMethods;
         //TODO Change to team entity object
-        private List<Object> team;
+        private List<Team> team;
         @NotNull
-        @UserRole()
+        @UserRole(requiredRole = {Role.TEACHER})
         private long curator;
     }
 }

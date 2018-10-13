@@ -1,4 +1,4 @@
-package ua.edu.ukma.e_request.entities;
+package ua.edu.ukma.e_request.resources.enums;
 
 import java.io.Serializable;
 
