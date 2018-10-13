@@ -49,7 +49,7 @@ public class Request implements Serializable {
     private Room roomName;
 
     @ManyToOne
-    @JoinColumn(name = "room_id")
+    @JoinColumn(name = "prep_room_id")
     private Room preparationRoomName;
 
     @Basic
@@ -70,11 +70,11 @@ public class Request implements Serializable {
     private Boolean isSecurityNeeded;
 
     @ManyToOne(optional = false)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "student_id")
     private User student;
 
     @ManyToOne(optional = false)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "mentor_id")
     private User mentor;
 
     @ManyToMany(cascade = CascadeType.ALL)
