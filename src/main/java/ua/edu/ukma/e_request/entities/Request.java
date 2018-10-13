@@ -61,7 +61,7 @@ public class Request implements Serializable {
 
     @Column(name = "purpose", columnDefinition = "TEXT")
     private String purpose;
-
+    @Column(name = "target_audience")
     private String targetAudience;
 
     @Column(name = "expected_result", columnDefinition = "TEXT")
