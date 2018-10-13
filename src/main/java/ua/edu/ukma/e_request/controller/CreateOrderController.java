@@ -9,18 +9,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import ua.edu.ukma.e_request.entities.Room;
 import ua.edu.ukma.e_request.entities.Team;
+import ua.edu.ukma.e_request.entities.TechRequest;
 import ua.edu.ukma.e_request.resources.enums.PRMethods;
 import ua.edu.ukma.e_request.resources.enums.Role;
 import ua.edu.ukma.e_request.services.interfaces.RequestService;
 import ua.edu.ukma.e_request.utils.validator.InFuture;
 import ua.edu.ukma.e_request.utils.validator.UserRole;
 
+import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Date;
-import java.util.List;
+import java.sql.Timestamp;
+import java.util.*;
 
 @Controller
 @RequestMapping("/e_request")
@@ -41,7 +45,8 @@ public class CreateOrderController {
         if(bindingResult.hasErrors()){
             model.addAttribute("errors", bindingResult.getAllErrors());
         }
-        requestService.createRequest(createRequestForm);
+        //TODO add student session id
+        requestService.createRequest(createRequestForm,1  );
         return "e_request/creation/request_created";
     }
 
@@ -56,13 +61,24 @@ public class CreateOrderController {
         private String description;
         @NotNull
         @InFuture
-        private Date startDate;
+        private Timestamp startDate;
         @NotNull
         @InFuture
-        private Date endDate;
-        private List<PRMethods> prMethods;
+        private Timestamp endDate;
+        private Set<PRMethods> prMethods;
         @NotNull
         @UserRole(requiredRole = {Role.TEACHER})
         private long curator;
+
+        @Size( max = 100)
+        private String purpose;
+        private String targetAudience;
+        private String expectedResult;
+        private Room preparationRoomName;
+        private Boolean isSecurityNeeded;
+        private Set<TechRequest> techRequests;
+        private Timestamp prepStartDateTime;
+        private Timestamp prepFinishDateTime;
+        private Integer expectedAmountOfInvolved;
     }
 }
