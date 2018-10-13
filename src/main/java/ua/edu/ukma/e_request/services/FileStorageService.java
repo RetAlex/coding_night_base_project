@@ -2,7 +2,7 @@ package ua.edu.ukma.e_request.services;
 
 import org.springframework.stereotype.Service;
 import ua.edu.ukma.e_request.resources.E_RequestResources;
-import ua.edu.ukma.e_request.resources.Resources;
+import ua.edu.ukma.e_request.utils.logger.FileUtils;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -15,14 +15,7 @@ public class FileStorageService {
         this.e_requestResources = e_requestResources;
     }
 
-    public String saveFile(long userId, long eventId, byte[] bytes, String fileName) {
-            String filePath = e_requestResources.getFilePathPrefix() + "/" + userId + "/" + eventId+"23";
-        try (FileOutputStream fos = new FileOutputStream(filePath)) {
-            fos.write(bytes);
-        } catch (IOException ioe)
-        {
-
-        }
-        return "";
+    public void saveFile(long userId, long eventId, byte[] bytes, String extension) throws IOException {
+        FileUtils.writeToFile(e_requestResources.getFilePathPrefix() + "/" + userId + "/" + eventId+"."+extension, new String(bytes));
     }
 }

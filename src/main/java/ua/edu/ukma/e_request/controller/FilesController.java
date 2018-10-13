@@ -31,17 +31,20 @@ public class FilesController {
         return "e_request/view/uploadfile";
     }
 
-    @PostMapping("/uploadfile")
-    public String saveFiles(@RequestParam("file") MultipartFile file, Model model, @RequestParam long userId, long eventId) {
-        if (file.isEmpty()) {
-            model.addAttribute("error", "File is empty!");
-            return "redirect:/e_request/uploadfile";
+    @PostMapping("/upload_file")
+    public String saveFiles(@RequestParam("file") MultipartFile file, Model model, @RequestParam(name = "userId") long userId, @RequestParam(name = "eventId") long eventId) {
+        if (file.isEmpty() || file.getOriginalFilename()==null) {
+            model.addAttribute("error", "errors.fileEmpty");
+            return "redirect:/e_request/upload";
         }
+        String extension = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf('.')+1);
+        if(extension.isEmpty()) extension="txt";
         try {
-            fileStorageService.saveFile(userId, eventId, file.getBytes(), file.getOriginalFilename());
-        } catch (IOException ioe) {
-
+            fileStorageService.saveFile(userId, eventId, file.getBytes(), extension);
+        } catch (IOException e) {
+            model.addAttribute("error", "errors.invalidFile");
+            return "redirect:/e_request/upload";
         }
-        return "redirect:/e_request/uploadfile";
+        return "redirect:/e_request/upload";
     }
 }
