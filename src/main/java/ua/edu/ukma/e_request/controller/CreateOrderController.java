@@ -6,9 +6,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import ua.edu.ukma.e_request.resources.enums.PRMethods;
 import ua.edu.ukma.e_request.services.interfaces.RequestService;
 
 import javax.validation.Valid;
+import javax.validation.constraints.Size;
+import javax.xml.crypto.Data;
+import java.util.Date;
+import java.util.List;
 
 @Controller
 @RequestMapping("/e_request")
@@ -19,7 +24,7 @@ public class CreateOrderController {
         this.requestService = requestService;
     }
 
-    @GetMapping({"", "/"})
+    @GetMapping("/create")
     public String renderPage(){
         return "e_request/creation/create_request";
     }
@@ -30,6 +35,15 @@ public class CreateOrderController {
     }
 
     public static class CreateRequestForm{
-
+        @Size(min=5, max = 30)
+        private String name;
+        @Size(min=20, max = 5000)
+        private String description;
+        private Date startDate;
+        private Date endDate;
+        private List<PRMethods> prMethods;
+        //TODO Change to team entity object
+        private List<Object> team;
+        private long curator;
     }
 }
