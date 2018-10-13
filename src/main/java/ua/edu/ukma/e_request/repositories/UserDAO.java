@@ -7,5 +7,5 @@ import ua.edu.ukma.e_request.entities.User;
 @Repository
 public interface UserDAO extends JpaRepository<User, Long> {
 
-    User findByUs
+//    User findByUs
 }
