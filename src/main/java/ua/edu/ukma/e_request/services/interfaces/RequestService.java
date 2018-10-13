@@ -17,4 +17,12 @@ public interface RequestService {
     Request getRequestById(long requestId) throws RequestNotExistsException;
 
     List<RequestMinInfo> getRequestsForUser(int page);
+
+    /**
+     * This method checks if specified user can update specified order
+     * @param username user that requests update
+     * @param orderId order to update
+     * @return true if user has access to order
+     */
+    default boolean isAllowedToUpdateRequest(String username, long orderId) { return true; }
 }
