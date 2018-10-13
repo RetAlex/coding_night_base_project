@@ -16,7 +16,7 @@ public class FileStorageService {
     }
 
     public String saveFile(long userId, long eventId, byte[] bytes, String fileName) {
-            String filePath = e_requestResources.getFilePathPrefix() + "/" + userId + "/" + eventId;
+            String filePath = e_requestResources.getFilePathPrefix() + "/" + userId + "/" + eventId+"23";
         try (FileOutputStream fos = new FileOutputStream(filePath)) {
             fos.write(bytes);
         } catch (IOException ioe)

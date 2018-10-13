@@ -14,5 +14,5 @@ public class E_RequestResources {
     private boolean sslEnabled;
     private boolean tlsEnabled;
 
-    private String filePathPrefix = "./uploads";
+    private String filePathPrefix = "upload";
 }
