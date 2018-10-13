@@ -7,10 +7,12 @@ import java.io.Serializable;
  * Test User instance
  * Created by a.bondarenko on 10/13/2018.
  */
-@Entity
+@Entity(name = "User")
+@Table(name = "e_users")
 public class User implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "user_id")
     private Long id;
     @Enumerated(EnumType.STRING)
     @Column(length = 8)
