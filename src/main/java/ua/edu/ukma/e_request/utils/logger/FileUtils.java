@@ -2,12 +2,13 @@ package ua.edu.ukma.e_request.utils.logger;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class FileUtils {
-    public static void writeToFile(String path, String message) throws Exception {
+    public static void writeToFile(String path, String message) throws IOException {
         File f = new File(path);
         if(!f.exists()) {
             f.getParentFile().mkdirs();
