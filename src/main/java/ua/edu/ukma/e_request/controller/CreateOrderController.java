@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ua.edu.ukma.e_request.entities.Room;
-import ua.edu.ukma.e_request.entities.TechRequest;
 import ua.edu.ukma.e_request.resources.enums.PRMethods;
 import ua.edu.ukma.e_request.resources.enums.Role;
 import ua.edu.ukma.e_request.services.interfaces.RequestService;
@@ -52,30 +51,26 @@ public class CreateOrderController {
     public static class CreateRequestForm{
         @NotNull
         @Size(min=5, max = 30)
-        private String name;
-        @NotNull
-        @Size(min=20, max = 5000)
-        private String description;
+        private String title;
         @NotNull
         @InFuture
-        private Timestamp startDate;
+        private Timestamp dateFrom;
         @NotNull
         @InFuture
-        private Timestamp endDate;
-        private Set<PRMethods> prMethods;
+        private Timestamp dateTo;
+        private Set<PRMethods> pr;
         @NotNull
         @UserRole(requiredRole = {Role.TEACHER})
         private long curator;
 
         @Size( max = 100)
-        private String purpose;
-        private String targetAudience;
-        private String expectedResult;
-        private Room preparationRoomName;
-        private Boolean isSecurityNeeded;
-        private Set<TechRequest> techRequests;
-        private Timestamp prepStartDateTime;
-        private Timestamp prepFinishDateTime;
-        private Integer expectedAmountOfInvolved;
+        private String desc;
+        private String aim;
+        private String audition;
+        private Room room;
+        private Room prepRoom;
+        private Timestamp prepDateFrom;
+        private Timestamp prepDateTo;
+        private Integer participants;
     }
 }

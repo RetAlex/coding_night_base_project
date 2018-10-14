@@ -111,18 +111,18 @@ public class Request implements Serializable {
     private Set<TechRequest> techRequests = new HashSet<>();
 
     public Request(CreateOrderController.CreateRequestForm createRequestForm, long studentId) {
-        this.eventName = createRequestForm.getName();
-        this.mentor = new User(createRequestForm.getCurator());
-        this.student = new User(studentId);
-        this.purpose = createRequestForm.getPurpose();
-        this.expectedResult = createRequestForm.getExpectedResult();
-        this.targetAudience = createRequestForm.getTargetAudience();
-        this.isSecurityNeeded = createRequestForm.getIsSecurityNeeded();
-        this.finishDateTime = createRequestForm.getEndDate();
-        this.startDateTime = createRequestForm.getStartDate();
-        this.expectedAmountOfInvolved = createRequestForm.getExpectedAmountOfInvolved();
-        this.techRequests = createRequestForm.getTechRequests();
-        this.prepFinishDateTime = createRequestForm.getPrepFinishDateTime();
-        this.prepStartDateTime = createRequestForm.getPrepStartDateTime();
+//        this.eventName = createRequestForm.getName();
+//        this.mentor = new User(createRequestForm.getCurator());
+//        this.student = new User(studentId);
+//        this.purpose = createRequestForm.getPurpose();
+//        this.expectedResult = createRequestForm.getExpectedResult();
+//        this.targetAudience = createRequestForm.getTargetAudience();
+//        this.isSecurityNeeded = createRequestForm.getIsSecurityNeeded();
+//        this.finishDateTime = createRequestForm.getEndDate();
+//        this.startDateTime = createRequestForm.getStartDate();
+//        this.expectedAmountOfInvolved = createRequestForm.getExpectedAmountOfInvolved();
+//        this.techRequests = createRequestForm.getTechRequests();
+//        this.prepFinishDateTime = createRequestForm.getPrepFinishDateTime();
+//        this.prepStartDateTime = createRequestForm.getPrepStartDateTime();
     }
 }
