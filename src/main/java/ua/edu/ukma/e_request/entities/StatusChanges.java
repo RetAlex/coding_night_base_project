@@ -31,4 +31,7 @@ public class StatusChanges implements Serializable{
     @ManyToOne
     @JoinTable(name = "request_id")
     private Request request;
+
+    @Column(columnDefinition = "TEXT")
+    private String refusalDescription;
 }
