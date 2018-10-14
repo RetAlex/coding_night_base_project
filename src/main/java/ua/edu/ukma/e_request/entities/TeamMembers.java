@@ -36,4 +36,10 @@ public class TeamMembers implements Serializable{
     private String phoneNumber;
 
     private String specialisation;
+
+    @Override
+    public String toString() {
+        return String.format("id=$d, user_id=%d, request_id=%d, responsibility=%s, phoneNumber=%s, specialisation=%s",
+                id, user.getId(), request.getId(), responsibility, phoneNumber, specialisation);
+    }
 }

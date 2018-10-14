@@ -23,6 +23,11 @@ public class AdminRequestController {
         return "e_request/request/showAll";
     }
 
+    @GetMapping("/{orderId}")
+    public String showOrder(){
+        return "e_request/request/adminShow";
+    }
+
     @PostMapping("/applyRequest")
     public String applyRequest(@RequestParam("request_id") long requestId){
         requestService.applyOrder(requestId);

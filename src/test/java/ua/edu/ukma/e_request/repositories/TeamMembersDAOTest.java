@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import ua.edu.ukma.e_oss.config.EOssApplication;
-import ua.edu.ukma.e_request.entities.Room;
+import ua.edu.ukma.e_request.entities.TeamMembers;
 
 import java.util.List;
 
@@ -17,15 +17,13 @@ import java.util.List;
 @ActiveProfiles("local")
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = EOssApplication.class)
-public class RoomDAOTest {
+public class TeamMembersDAOTest {
     @Autowired
-    private RoomDAO roomDAO;
+    private TeamMembersDAO teamMembersDAO;
 
     @Test
-    public void testGetRoomsByUser() {
-        List<Room> rooms = roomDAO.findByUser(1L);
-        for (Room room : rooms) {
-            System.out.println(room);
-        }
+    public void testGetTeamMembersByRequest() {
+        List<TeamMembers> members = teamMembersDAO.getTeamMembersByRequest(1L);
+        System.out.println(members);
     }
 }
