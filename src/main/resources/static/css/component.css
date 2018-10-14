@@ -834,7 +834,6 @@ button.fs-continue:hover {
 .aside {
 	width: 90px;
 	min-width: 90px;
-	height: 100%;
 	padding: .638em;
 	background: #f5f5f5;
 	display: flex;
@@ -922,6 +921,7 @@ button.fs-continue:hover {
 }
 
 .container__form select {
+	cursor: pointer;
 	padding: .938em;
 	width: 100%;
 	border: none;
@@ -936,6 +936,17 @@ button.fs-continue:hover {
 	outline: none;
 	border-bottom: 2px solid #3b3f45;
 	background-color: transparent;
+}
+
+.main__container-repetition {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.main__container-room h3 {
+	display: inline-block;
+	margin-right: .625em;
 }
 
 .pr {
