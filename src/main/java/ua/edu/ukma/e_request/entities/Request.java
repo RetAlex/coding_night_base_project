@@ -6,6 +6,7 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import ua.edu.ukma.e_request.controller.CreateOrderController;
 import ua.edu.ukma.e_request.resources.dto.RequestMinInfo;
+import ua.edu.ukma.e_request.resources.enums.RequestStatus;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -33,7 +34,9 @@ import java.util.Set;
                         @ColumnResult(name = "eventName",type = String.class),
                         @ColumnResult(name = "startDateTime",type = Date.class),
                         @ColumnResult(name = "finishDateTime",type = Date.class),
-                        @ColumnResult(name = "purpose",type = String.class)
+                        @ColumnResult(name = "purpose",type = String.class),
+                        @ColumnResult(name = "id",type = Long.class),
+                        @ColumnResult(name = "currentStatus",type = RequestStatus.class)
                 }
         )
 )})
@@ -43,7 +46,9 @@ import java.util.Set;
                 "    u.event_name as eventName, " +
                 "    u.start_date_time as startDateTime, " +
                 "    u.finish_date_time as finishDateTime, " +
-                "    u.purpose as purpose " +
+                "    u.purpose as purpose, " +
+                "    u.request_id as id," +
+                "    u.current_status as currentStatus " +
                 "FROM " +
                 "    e_requests as u inner join e_users e on e.user_id=u.student_id" +
                 " where e.username=:param1 limit 10 offset :param2", resultSetMapping = "findAllRequestForUserMapping"
@@ -121,6 +126,10 @@ public class Request implements Serializable {
     @OneToMany(mappedBy = "request")
     private Set<TechRequest> techRequests = new HashSet<>();
 
+    @Enumerated(EnumType.STRING)
+    @Column(length = 64)
+    private RequestStatus currentStatus;
+
     public Request(CreateOrderController.CreateRequestForm createRequestForm, long studentId) {
         this.eventName = createRequestForm.getName();
         this.mentor = new User(createRequestForm.getCurator());
@@ -135,5 +144,6 @@ public class Request implements Serializable {
         this.techRequests = createRequestForm.getTechRequests();
         this.prepFinishDateTime = createRequestForm.getPrepFinishDateTime();
         this.prepStartDateTime = createRequestForm.getPrepStartDateTime();
+        this.currentStatus = RequestStatus.NEW;
     }
 }
