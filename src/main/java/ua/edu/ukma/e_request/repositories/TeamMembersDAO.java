@@ -15,4 +15,7 @@ import java.util.List;
 public interface TeamMembersDAO extends JpaRepository<TeamMembers, Long> {
     @Query(nativeQuery = true, value = "SELECT * FROM e_team_members WHERE request_id=?")
     List<TeamMembers> getTeamMembersByRequest(@Param("request_id") Long requestId);
+
+    @Query(nativeQuery = true, value = "SELECT  * FROM e_team_members WHERE request_id=? AND user_id=?")
+    TeamMembers getTeamMemberByRequestIdAndUserId(@Param("user_id") Long requestId, @Param("user_id") Long userId);
 }

@@ -350,6 +350,10 @@ button.fs-continue,
 	background-image: url(../img/viber.svg);
 }
 
+.fs-fields .fs-radio-custom label.radio-clock::after {
+	background-image: url(../img/preparation.svg);
+}
+
 .fs-fields .fs-radio-custom label.radio-conversion::after {
 	background-image: url(../img/facebook.svg);
 }
@@ -729,6 +733,10 @@ button.fs-continue:hover {
 	visibility: visible;
 }
 
+.fs-form li.fs-current div {
+	margin-bottom: .938em;
+}
+
 .fs-form li.fs-hide,
 .fs-form li.fs-show {
 	pointer-events: none;
@@ -925,6 +933,7 @@ button.fs-continue:hover {
 	width: 100%;
 	border: none;
 	outline: none;
+	background: transparent;
 	border-bottom: 2px solid #3b3f45;
 }
 

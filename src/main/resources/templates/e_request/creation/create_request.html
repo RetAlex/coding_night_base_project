@@ -62,17 +62,29 @@
 						</li>
 
 						<li>
-							<label class="fs-field-label fs-anim-upper" for="q5">Кількість учасників/глядачів</label>
-							<input class="fs-anim-lower" id="q5" name="participants" type="number" placeholder="1" step="1" min="1" required/>
+                            <div>
+                                <label class="fs-field-label fs-anim-upper" for="q5">Кількість учасників/глядачів</label>
+                                <input class="fs-anim-lower" id="q5" name="participants" type="number" placeholder="1" step="1" min="1" required/>
+                            </div>
 
+                            <div>
+                                <label class="fs-field-label fs-anim-upper" for="q7b">Цільова аудиторія</label>
+                                <input class="fs-anim-lower" id="q7b" name="q2" type="text" placeholder="Цей захід для..."
+                                       required/>
+                            </div>
 
-                    <label class="fs-field-label fs-anim-upper" for="q7b">Цільова аудиторія</label>
-                    <input class="fs-anim-lower" id="q7b" name="q2" type="text" placeholder="Цей захід для..."
-                           required/>
                 </li>
                 <li>
+                    <div class="fs-radio-group fs-radio-custom clearfix fs-anim-lower">
+                        <span>
+                            <input style="opacity: 0" id="q6" type="checkbox"/>
+                            <label for="q3b" class="radio-clock" onclick="needRepetition()">Потрібна репетиція</label>
+                        </span>
+<!--
+                    <div class="fs-fields"></div>
                     <label class="fs-field-label fs-anim-upper" for="q6">Потрібна репетиція</label>
-                    <input class="fs-anim-lower" onclick="needRepetition()" id="q6" type="checkbox"/>
+                    <input class="fs-anim-lower radio-clock" onclick="needRepetition()" id="q6" type="checkbox"/>
+-->
 
                     <div class="fs-radio-group fs-radio-custom clearfix fs-anim-lower" id="repetition-container">
                     </div>
@@ -134,21 +146,17 @@
     function chooseRoom(checked) {
         const container = document.getElementById('room-container');
 
-        if (checked) {
-            container.innerHTML = "<label class=\"fs-field-label fs-anim-upper\" for=\"q2\">Номер аудиторії</label>\n" +
-                "                        <input class=\"fs-anim-lower\" id=\"q2\" name=\"room\" type=\"text\" placeholder=\"1-223\"\n" +
-                "                               required/>";
-        } else container.innerHTML = "";
+        container.innerHTML = "<label class=\"fs-field-label fs-anim-upper\" for=\"q2\">Номер аудиторії</label>\n" +
+            "<input class=\"fs-anim-lower\" id=\"q2\" name=\"room\" type=\"text\" placeholder=\"1-223\"\n" +
+            "required/>";
     }
 
     function chooseRoomRepetition(checked) {
         const container = document.getElementById('room-container-repetition');
 
-        if (checked) {
-            container.innerHTML = "<label class=\"fs-field-label fs-anim-upper\" for=\"q2\">Номер аудиторії</label>\n" +
-                "                        <input class=\"fs-anim-lower\" id=\"q2\" name=\"prepRoom\" type=\"text\" placeholder=\"1-223\"\n" +
-                "                               required/>";
-        } else container.innerHTML = "";
+        container.innerHTML = "<label class=\"fs-field-label fs-anim-upper\" for=\"q2\">Номер аудиторії</label>\n" +
+            "<input class=\"fs-anim-lower\" id=\"q2\" name=\"prepRoom\" type=\"text\" placeholder=\"1-223\"\n" +
+            "required/>";
     }
 
     function needRepetition() {
@@ -159,17 +167,17 @@
 
         if (input.checked) {
             container.innerHTML = "<span><input onclick='chooseRoomRepetition(true)' id=\"q4d\" name=\"prepLocation\" type=\"radio\" value=\"room\"/><label for=\"q4d\" class=\"radio-room\">Корпус/Аудиторія</label></span>\n" +
-                "<span><input onclick='chooseRoomRepetition(false)' id=\"q4e\" name=\"prepLocation\" type=\"radio\" value=\"kmc\"/><label for=\"q4e\" class=\"radio-art\">КМЦ</label></span>\n" +
-                "<span><input onclick='chooseRoomRepetition(false)' id=\"q4f\" name=\"prepLocation\" type=\"radio\" value=\"library\"/><label for=\"q4f\" class=\"radio-library\">Наукова бібліотека</label></span>\n" +
-                "<span><input onclick='chooseRoomRepetition(false)' id=\"q4g\" name=\"prepLocation\" type=\"radio\" value=\"museum\"/><label for=\"q4g\" class=\"radio-museum\">Музей</label></span>\n";
+                "<span><input onclick='chooseRoomRepetition(true)' id=\"q4e\" name=\"prepLocation\" type=\"radio\" value=\"kmc\"/><label for=\"q4e\" class=\"radio-art\">КМЦ</label></span>\n" +
+                "<span><input onclick='chooseRoomRepetition(true)' id=\"q4f\" name=\"prepLocation\" type=\"radio\" value=\"library\"/><label for=\"q4f\" class=\"radio-library\">Наукова бібліотека</label></span>\n" +
+                "<span><input onclick='chooseRoomRepetition(true)' id=\"q4g\" name=\"prepLocation\" type=\"radio\" value=\"museum\"/><label for=\"q4g\" class=\"radio-museum\">Музей</label></span>\n";
 
             containerDates.innerHTML = "<div>\n" +
-                "                        <label class=\"fs-field-label fs-anim-upper\" for=\"q2\">Дата початку репетиції</label>\n" +
-                "                        <input class=\"fs-anim-lower\" id=\"prepDateFrom\" name=\"prepDateFrom\" type=\"text\" placeholder=\"23/10/18 12:30\"\n" +
-                "                               required/>\n" +
-                "                    </div>\n" +
+                "<label class=\"fs-field-label fs-anim-upper\" for=\"q2\">Дата початку репетиції</label>\n" +
+                "<input class=\"fs-anim-lower\" id=\"prepDateFrom\" name=\"prepDateFrom\" type=\"text\" placeholder=\"23/10/18 12:30\"\n" +
+                "required/>\n" +
+                "</div>\n" +
                 "\n" +
-                "                            <div>\n" +
+                "<div>\n" +
                 "\t\t\t\t\t\t\t\t<label class=\"fs-field-label fs-anim-upper\" for=\"q2-2\">Дата кінця репетиції</label>\n" +
                 "\t\t\t\t\t\t\t\t<input class=\"fs-anim-lower\" id=\"prepDateTo\" name=\"prepDateTo\" type=\"text\" placeholder=\"24/10/18 14:30\" required/>\n" +
                 "\t\t\t\t\t\t\t</div>";

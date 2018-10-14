@@ -1,3 +1,4 @@
+
 package ua.edu.ukma.e_request.controller;
 
 import org.springframework.stereotype.Controller;
@@ -5,9 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ua.edu.ukma.e_request.services.interfaces.RequestService;
 import ua.edu.ukma.e_request.utils.exceptions.RequestNotExistsException;
-
-import javax.websocket.server.PathParam;
-
 @Controller
 @RequestMapping("/e_request/admin")
 public class AdminRequestController {
@@ -30,13 +28,13 @@ public class AdminRequestController {
     }
 
     @PostMapping("/applyRequest")
-    public String applyRequest(@RequestParam("request_id") long requestId){
+    public String applyRequest(@RequestParam("request_id") long requestId) throws RequestNotExistsException {
         requestService.applyOrder(requestId);
         return "redirect:/e_request/admin/all";
     }
 
     @PostMapping("/declineRequest")
-    public String declineRequest(@RequestParam("request_id") long requestId, @RequestParam("reason") String reason, @RequestParam("final") boolean finalDecision){
+    public String declineRequest(@RequestParam("request_id") long requestId, @RequestParam("reason") String reason, @RequestParam(value = "final", required = false, defaultValue = "false") boolean finalDecision){
         requestService.declineOrder(requestId, reason, finalDecision);
         return "redirect:/e_request/admin/all";
     }

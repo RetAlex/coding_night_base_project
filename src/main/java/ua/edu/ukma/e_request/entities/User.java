@@ -22,7 +22,7 @@ import java.io.Serializable;
 @ToString
 @SqlResultSetMappings({
         @SqlResultSetMapping(
-                name = "getAllRoomsMapping",
+                name = "getAllFONDRoomsMapping",
                 classes = @ConstructorResult(
                         targetClass = FondRoom.class,
                         columns = {
@@ -34,7 +34,7 @@ import java.io.Serializable;
                 )
         )})
 @NamedNativeQueries({
-        @NamedNativeQuery(name = "getAllRooms",
+        @NamedNativeQuery(name = "getAllFONDRooms",
                 query = "SELECT " +
                         "    r.room_id as id, " +
                         "    r.name as name, " +
@@ -42,7 +42,7 @@ import java.io.Serializable;
                         "    e.username as username " +
                         "FROM " +
                         "    e_users as e inner join e_rooms r on e.user_id=r.user_id" +
-                        " where e.role='FOND'", resultSetMapping = "getAllRoomsMapping"
+                        " where e.role='FOND'", resultSetMapping = "getAllFONDRoomsMapping"
         )
 })
 public class User implements Serializable {
