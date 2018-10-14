@@ -37,7 +37,8 @@ import java.util.Set;
                 }
         )
 )})
-@NamedNativeQuery(name = "findAllRequestForUser",
+@NamedNativeQueries({
+        @NamedNativeQuery(name = "findAllRequestForUser",
         query = "SELECT " +
                 "    u.event_name as eventName, " +
                 "    u.start_date_time as startDateTime, " +
@@ -46,7 +47,15 @@ import java.util.Set;
                 "FROM " +
                 "    e_requests as u inner join e_users e on e.user_id=u.student_id" +
                 " where e.username=:param1 limit 10 offset :param2", resultSetMapping = "findAllRequestForUserMapping"
-)
+),
+        @NamedNativeQuery(name = "checkIsUpdate",
+                query = "SELECT true " +
+                        "FROM " +
+                        "    e_requests as u inner join e_users e on e.user_id=u.student_id" +
+                        " where e.username=:username and u.request_id=:requestId"
+        ),
+
+})
 public class Request implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
