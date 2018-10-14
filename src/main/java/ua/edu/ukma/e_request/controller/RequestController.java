@@ -26,7 +26,7 @@ public class RequestController {
 
     @GetMapping({"","/"})
     public String showAll(@RequestParam(name = "page", required = false, defaultValue = "0") int page, Model model){
-        model.addAttribute("orders", requestService.getRequestsForUser(page));
+        model.addAttribute("requests", requestService.getRequestsForUser(page));
         return "e_request/request/showAll";
     }
 }
