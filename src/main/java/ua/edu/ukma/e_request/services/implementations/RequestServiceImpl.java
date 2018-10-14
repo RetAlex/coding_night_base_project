@@ -69,7 +69,7 @@ public class RequestServiceImpl implements RequestService {
         requestDao.save(current);
     }
 
-    @Override
+
     public void declineOrder(long requestId, String reason, boolean finalDecision) throws RequestNotExistsException {
         Request current = requestDao.findById(requestId).orElseThrow(RequestNotExistsException::new);
         RequestStatus prev = current.getCurrentStatus();
@@ -81,6 +81,12 @@ public class RequestServiceImpl implements RequestService {
 
     @Override
     public List<RequestMinInfo> getRequestsForAdmin(int page) {
-        return null;//return requestDao.getRequestForAdmin();
+        return null;
     }
+
+    @Override
+    public void assignToMentor(long orderId, long mentorId) {
+
+    }
+
 }

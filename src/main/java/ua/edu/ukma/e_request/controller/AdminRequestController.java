@@ -1,3 +1,4 @@
+
 package ua.edu.ukma.e_request.controller;
 
 import org.springframework.stereotype.Controller;
@@ -33,7 +34,7 @@ public class AdminRequestController {
     }
 
     @PostMapping("/declineRequest")
-    public String declineRequest(@RequestParam("request_id") long requestId, @RequestParam("reason") String reason, @RequestParam("final") boolean finalDecision){
+    public String declineRequest(@RequestParam("request_id") long requestId, @RequestParam("reason") String reason, @RequestParam(value = "final", required = false, defaultValue = "false") boolean finalDecision){
         requestService.declineOrder(requestId, reason, finalDecision);
         return "redirect:/e_request/admin/all";
     }
