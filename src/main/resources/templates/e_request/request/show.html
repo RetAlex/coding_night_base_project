@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="en" class="no-js" style="height: initial" xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
@@ -39,27 +39,91 @@
 			<div class="main__block">
 				<article class="main__container">
 					<div class="container__title">
-						<h3>Похід за грибами</h3>
+						<h3 th:text="${request.eventName}">Похід за грибами</h3>
 
 						<div class="container__timestamp">
-							<span>24/10/18 14:30</span>
-							<span>24/10/18 16:30</span>
+							<span th:text="${request.startDateTime}">24/10/18 14:30</span>
+							<span th:text="${request.finishDateTime}">24/10/18 16:30</span>
 						</div>
 					</div>
 
 					<div class="container__title">
 						<div class="container__title-name">
-							<span class="status">розглядається</span>
-						</div>
+							<span>Василь</span>
 
-						<button class="fs-submit">Розгорнути</button>
+							<span class="status" th:text="${request.currentStatus}">розглядається</span>
+						</div>
 					</div>
 
-					<p class="main__container-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium assumenda commodi cum cumque delectus doloremque dolores dolorum ea eligendi enim esse excepturi explicabo fugiat inventore ipsam labore magnam maxime minima nam, natus nemo neque nihil possimus quibusdam ratione reiciendis rem repellat sapiente sint voluptatem! Earum facilis iure molestiae nisi perferendis.</p>
+					<p class="main__container-text" th:text="${request.purpose}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium assumenda commodi cum cumque delectus doloremque dolores dolorum ea eligendi enim esse excepturi explicabo fugiat inventore ipsam labore magnam maxime minima nam, natus nemo neque nihil possimus quibusdam ratione reiciendis rem repellat sapiente sint voluptatem! Earum facilis iure molestiae nisi perferendis.</p>
 
-<!--					<div class="main__container-organizators">
-						<span>Організатори:</span>
-					</div>-->
+					<div class="main__container-room">
+						<h3>Місце проведення заходу:</h3>&nbsp;<span th:text="${'Корпус '+request.roomName.building}">Аудиторія номер</span>&nbsp;<span th:text="${'аудиторія '+request.roomName.name}">501</span>
+					</div>
+
+					<div class="main__block">
+
+						<form action="" class="main__container-organizators">
+							<span>Куратори:</span>
+
+							<div class="container__form">
+								<select name="teachers" id="">
+									<option value="">Куратори</option>
+								</select>
+							</div>
+
+							<button class="fs-submit">Додати</button>
+						</form>
+
+						<form action="" class="main__container-organizators">
+							<span>Організатори:</span>
+
+							<div class="container__form">
+								<select name="nickname" id="">
+									<option value="">nickname</option>
+								</select>
+							</div>
+
+							<div class="container__form">
+								<label for=""></label>
+								<input type="text" placeholder="Обов'язки">
+							</div>
+
+							<div class="container__form">
+								<label for=""></label>
+								<input type="tel" placeholder="Номер телефону">
+							</div>
+
+							<div class="container__form">
+								<label for=""></label>
+								<input type="text" placeholder="Спеціалізація">
+							</div>
+
+							<div class="container__form">
+								<label for=""></label>
+								<input type="text" placeholder="Кількість годин">
+							</div>
+
+							<button class="fs-submit">Додати</button>
+						</form>
+					</div>
+
+					<h3>Репетиція</h3>
+					<div class="main__container-repetition">
+
+						<div class="main__container-room">
+							<h3>Місце проведення репетиції:</h3>&nbsp;<span th:text="${'Корпус '+request.roomName.building}">Аудиторія номер</span>&nbsp;<span th:text="${'аудиторія '+request.roomName.name}">501</span>
+						</div>
+
+						<div class="container__timestamp">
+							<span th:text="${prepStartDateTime}">24/10/18 14:30</span>
+							<span th:text="${prepFinishDateTime}">24/10/18 16:30</span>
+						</div>
+					</div>
+
+					<img src="/assets/img/telegram.svg" alt="" class="pr">
+					<img src="/assets/img/facebook.svg" alt="" class="pr">
+					<img src="/assets/img/viber.svg" alt="" class="pr">
 				</article>
 			</div>
 		</main>

@@ -34,7 +34,7 @@ public class RequestController {
     }
 
     @PostMapping("/assignToTeam")
-    public String assignToTeam(@ModelAttribute AssignToTeamForm assignToTeamForm){
+    public String assignMember(@ModelAttribute AssignToTeamForm assignToTeamForm){
         teamService.addToTeam(assignToTeamForm);
         return "redirect:/e_request/requests/"+assignToTeamForm.requestId;
     }
