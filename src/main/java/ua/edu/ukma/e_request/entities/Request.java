@@ -34,20 +34,33 @@ import java.util.Set;
                         @ColumnResult(name = "eventName",type = String.class),
                         @ColumnResult(name = "startDateTime",type = Date.class),
                         @ColumnResult(name = "finishDateTime",type = Date.class),
-                        @ColumnResult(name = "purpose",type = String.class)
+                        @ColumnResult(name = "purpose",type = String.class),
+                        @ColumnResult(name = "id",type = Long.class),
+                        @ColumnResult(name = "currentStatus",type = RequestStatus.class)
                 }
         )
 )})
-@NamedNativeQuery(name = "findAllRequestForUser",
+@NamedNativeQueries({
+        @NamedNativeQuery(name = "findAllRequestForUser",
         query = "SELECT " +
                 "    u.event_name as eventName, " +
                 "    u.start_date_time as startDateTime, " +
                 "    u.finish_date_time as finishDateTime, " +
-                "    u.purpose as purpose " +
+                "    u.purpose as purpose, " +
+                "    u.request_id as id," +
+                "    u.current_status as currentStatus " +
                 "FROM " +
                 "    e_requests as u inner join e_users e on e.user_id=u.student_id" +
                 " where e.username=:param1 limit 10 offset :param2", resultSetMapping = "findAllRequestForUserMapping"
-)
+),
+        @NamedNativeQuery(name = "checkIsUpdate",
+                query = "SELECT true " +
+                        "FROM " +
+                        "    e_requests as u inner join e_users e on e.user_id=u.student_id" +
+                        " where e.username=:username and u.request_id=:requestId"
+        ),
+
+})
 public class Request implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -131,5 +144,6 @@ public class Request implements Serializable {
         this.techRequests = createRequestForm.getTechRequests();
         this.prepFinishDateTime = createRequestForm.getPrepFinishDateTime();
         this.prepStartDateTime = createRequestForm.getPrepStartDateTime();
+        this.currentStatus = RequestStatus.NEW;
     }
 }

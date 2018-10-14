@@ -14,6 +14,6 @@ public interface RequestDAO extends JpaRepository<Request, Long> {
     @Query(nativeQuery = true,name = "findAllRequestForUser")
     List<RequestMinInfo> getRequestForUser(@Param("param1") String currentUserLogin, @Param("param2") int page);
 
-    @Query(value = "select true from Request r where r.student.username=?1 and r.id=?2")
-    Boolean isAllowedToUpdate(String username, long requestId);
+    @Query(nativeQuery = true,name = "checkIsUpdate")
+    Boolean isAllowedToUpdate(@Param("username") String username, @Param("requestId")long requestId);
 }

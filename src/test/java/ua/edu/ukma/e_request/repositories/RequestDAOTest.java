@@ -25,5 +25,6 @@ public class RequestDAOTest {
 
     @Test
     public void isAllowedToUpdate() {
+        assert requestDAO.isAllowedToUpdate("username",1);
     }
 }
