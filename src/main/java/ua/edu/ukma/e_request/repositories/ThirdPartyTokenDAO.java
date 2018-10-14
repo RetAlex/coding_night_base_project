@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import ua.edu.ukma.e_request.entities.ThirdPartyToken;
 
 /**
- * Created by nasti on 10/14/2018.
+ * Created by a.bondarenko on 10/14/2018.
  */
 @Repository
 public interface ThirdPartyTokenDAO extends JpaRepository<ThirdPartyToken, String> {

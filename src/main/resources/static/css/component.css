@@ -851,6 +851,7 @@ button.fs-continue:hover {
 }
 
 .main__container {
+	width: 100%;
 	padding: .625em;
 	border: 3px solid #3b3f45;
 	border-radius: 15px;

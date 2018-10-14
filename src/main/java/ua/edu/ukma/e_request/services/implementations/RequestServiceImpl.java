@@ -3,7 +3,6 @@ package ua.edu.ukma.e_request.services.implementations;
 import org.springframework.stereotype.Service;
 import ua.edu.ukma.e_request.controller.CreateOrderController;
 import ua.edu.ukma.e_request.entities.Request;
-import ua.edu.ukma.e_request.entities.User;
 import ua.edu.ukma.e_request.repositories.RequestDAO;
 import ua.edu.ukma.e_request.repositories.UserDAO;
 import ua.edu.ukma.e_request.resources.dto.RequestMinInfo;
@@ -18,11 +17,8 @@ public class RequestServiceImpl implements RequestService {
 
     private final RequestDAO requestDao;
 
-    private final UserDAO userDAO;
-
     public RequestServiceImpl(RequestDAO requestDao, UserDAO userDAO) {
         this.requestDao = requestDao;
-        this.userDAO = userDAO;
     }
 
     @Override
@@ -43,5 +39,15 @@ public class RequestServiceImpl implements RequestService {
     @Override
     public boolean isAllowedToUpdateRequest(String username, long orderId){
        return  requestDao.isAllowedToUpdate(username, orderId);
+    }
+
+    @Override
+    public void applyOrder(long requestId) {
+
+    }
+
+    @Override
+    public List<RequestMinInfo> getRequestsForAdmin(int page) {
+        return null;
     }
 }
