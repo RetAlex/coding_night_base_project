@@ -6,6 +6,7 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import ua.edu.ukma.e_request.controller.CreateOrderController;
 import ua.edu.ukma.e_request.resources.dto.RequestMinInfo;
+import ua.edu.ukma.e_request.resources.enums.RequestStatus;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -111,6 +112,10 @@ public class Request implements Serializable {
 
     @OneToMany(mappedBy = "request")
     private Set<TechRequest> techRequests = new HashSet<>();
+
+    @Enumerated(EnumType.STRING)
+    @Column(length = 64)
+    private RequestStatus currentStatus;
 
     public Request(CreateOrderController.CreateRequestForm createRequestForm, long studentId) {
         this.eventName = createRequestForm.getName();
