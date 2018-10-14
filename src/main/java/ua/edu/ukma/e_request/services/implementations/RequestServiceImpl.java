@@ -17,11 +17,8 @@ public class RequestServiceImpl implements RequestService {
 
     private final RequestDAO requestDao;
 
-    private final UserDAO userDAO;
-
     public RequestServiceImpl(RequestDAO requestDao, UserDAO userDAO) {
         this.requestDao = requestDao;
-        this.userDAO = userDAO;
     }
 
     @Override

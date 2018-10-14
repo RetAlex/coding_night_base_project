@@ -6,7 +6,6 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import ua.edu.ukma.e_request.entities.Request;
 import ua.edu.ukma.e_request.resources.dto.RequestMinInfo;
-
 import java.util.List;
 
 @Repository

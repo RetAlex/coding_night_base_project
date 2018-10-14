@@ -131,18 +131,20 @@ public class Request implements Serializable {
     private RequestStatus currentStatus;
 
     public Request(CreateOrderController.CreateRequestForm createRequestForm, long studentId) {
-//        this.eventName = createRequestForm.getName();
-//        this.mentor = new User(createRequestForm.getCurator());
-//        this.student = new User(studentId);
-//        this.purpose = createRequestForm.getPurpose();
-//        this.expectedResult = createRequestForm.getExpectedResult();
-//        this.targetAudience = createRequestForm.getTargetAudience();
-//        this.isSecurityNeeded = createRequestForm.getIsSecurityNeeded();
-//        this.finishDateTime = createRequestForm.getEndDate();
-//        this.startDateTime = createRequestForm.getStartDate();
+       this.eventName = createRequestForm.getTitle();
+        this.mentor = new User(createRequestForm.getCurator());
+       this.student = new User(studentId);
+       this.purpose = createRequestForm.getAim();
+ //      this.expectedResult = createRequestForm.getExpectedResult();
+//       this.targetAudience = createRequestForm.get
+//       this.isSecurityNeeded = createRequestForm.getIsSecurityNeeded();
+        this.finishDateTime = createRequestForm.getDateTo();
+        this.startDateTime = createRequestForm.getDateFrom();
 //        this.expectedAmountOfInvolved = createRequestForm.getExpectedAmountOfInvolved();
 //        this.techRequests = createRequestForm.getTechRequests();
-//        this.prepFinishDateTime = createRequestForm.getPrepFinishDateTime();
-//        this.prepStartDateTime = createRequestForm.getPrepStartDateTime();
+       this.prepFinishDateTime = createRequestForm.getPrepDateTo();
+       this.roomName = createRequestForm.getRoom();
+       this.preparationRoomName = createRequestForm.getPrepRoom();
+        this.prepStartDateTime = createRequestForm.getPrepDateFrom();
     }
 }
