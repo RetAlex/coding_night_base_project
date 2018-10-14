@@ -64,14 +64,23 @@
                                 </div>-->
             <form action="/e_request/admin/applyRequest" method="post">
                 <input style="display: none" name="request_id" th:value="${request.id}">
-                <input type="submit" value="Accept">
+                <button class="fs-submit">Accept</button>
             </form>
             <form action="/e_request/admin/declineRequest" method="post">
-                <input style="display: none" name="request_id" th:value="${request.id}">
-                <textarea name="reason" placeholder="Причина"></textarea>
-                <label>Критично</label>
-                <input type="checkbox" value="true" name="final">
-                <input type="submit" value="Decline">
+                <div class="container__form">
+                    <label for=""></label>
+                    <input style="display: none" name="request_id" th:value="${request.id}">
+                </div>
+                <div class="container__form">
+                    <textarea class="" name="reason" placeholder="Причина"></textarea>
+                </div>
+                <div class="container__form">
+                    <label>Критично</label>
+                    <input type="checkbox" value="true" name="final">
+                </div>
+
+                <button class="fs-submit">Decline</button>
+
             </form>
         </article>
     </div>
