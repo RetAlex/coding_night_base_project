@@ -34,89 +34,71 @@
             <ol class="fs-fields">
                 <li>
                     <label class="fs-field-label fs-anim-upper" for="q1">Назва заходу</label>
-                    <input class="fs-anim-lower" id="q1" name="q1" type="text" placeholder="Сходить пивасика попить"
+                    <input class="fs-anim-lower" id="q1" name="title" type="text" placeholder="Сходить пивасика попить"
                            required/>
                 </li>
                 <li>
                     <div>
                         <label class="fs-field-label fs-anim-upper" for="q2">Дата початку заходу</label>
-                        <input class="fs-anim-lower" id="q2" name="q2" type="text" placeholder="23/10/18 12:30"
+                        <input class="fs-anim-lower" id="q2" name="dateFrom" type="text" placeholder="23/10/18 12:30"
                                required/>
                     </div>
 
                             <div>
 								<label class="fs-field-label fs-anim-upper" for="q2-2">Дата кінця заходу</label>
-								<input class="fs-anim-lower" id="q2-2" name="q2-2" type="text" placeholder="24/10/18 14:30" required/>
+								<input class="fs-anim-lower" id="q2-2" name="dateTo" type="text" placeholder="24/10/18 14:30" required/>
 							</div>
 						</li>
 						<li data-input-trigger>
 							<label class="fs-field-label fs-anim-upper" for="q3">PR</label>
 							<div class="fs-radio-group fs-radio-custom clearfix fs-anim-lower">
-								<span><input id="q3b" name="q3" type="checkbox" value="conversion"/><label for="q3b" class="radio-conversion">Facebook</label></span>
-								<span><input id="q3c" name="q3" type="checkbox" value="social"/><label for="q3c" class="radio-social">Viber</label></span>
-								<span><input id="q3a" name="q3" type="checkbox" value="mobile"/><label for="q3a" class="radio-mobile">Telegram</label></span>
+								<span><input id="q3b" name="pr" type="checkbox" value="facebook"/><label for="q3b" class="radio-conversion">Facebook</label></span>
+								<span><input id="q3c" name="pr" type="checkbox" value="viber"/><label for="q3c" class="radio-social">Viber</label></span>
+								<span><input id="q3a" name="pr" type="checkbox" value="telegram"/><label for="q3a" class="radio-mobile">Telegram</label></span>
 							</div>
 						</li>
 
 						<li data-input-trigger>
 							<label for="q4" class="fs-field-label fs-anim-upper"></label>
 							<div class="fs-radio-group fs-radio-custom clearfix fs-anim-lower">
-								<span><input id="q3d" name="q3-2" type="radio" value=""/><label for="q3d" class="radio-room">Корпус/Аудиторія</label></span>
-								<span><input id="q3e" name="q3-2" type="radio" value=""/><label for="q3e" class="radio-art">КМЦ</label></span>
-								<span><input id="q3f" name="q3-2" type="radio" value=""/><label for="q3f" class="radio-library">Наукова бібліотека</label></span>
-								<span><input id="q3g" name="q3-2" type="radio" value=""/><label for="q3g" class="radio-museum">Музей</label></span>
+								<span><input id="q3d" name="location" type="radio" onclick="chooseRoom(true)" value="room"/><label for="q3d" class="radio-room">Корпус/Аудиторія</label></span>
+								<span><input id="q3e" name="location" type="radio" onclick="chooseRoom(false)" value="kmc"/><label for="q3e" class="radio-art">КМЦ</label></span>
+								<span><input id="q3f" name="location" type="radio" onclick="chooseRoom(false)" value="library"/><label for="q3f" class="radio-library">Наукова бібліотека</label></span>
+								<span><input id="q3g" name="location" type="radio" onclick="chooseRoom(false)" value="museum"/><label for="q3g" class="radio-museum">Музей</label></span>
 							</div>
+                            <div class="fs-anim-lower" id="room-container">
+
+                            </div>
 						</li>
 
-						<li data-input-trigger>
-							<label class="fs-field-label fs-anim-upper" data-info="We'll make sure to use it all over">Опис заходу</label>
-							<select class="cs-select cs-skin-boxes fs-anim-lower">
-								<option value="" disabled selected>Pick a color</option>
-								<option value="#588c75" data-class="color-588c75">#588c75</option>
-								<option value="#b0c47f" data-class="color-b0c47f">#b0c47f</option>
-								<option value="#f3e395" data-class="color-f3e395">#f3e395</option>
-								<option value="#f3ae73" data-class="color-f3ae73">#f3ae73</option>
-								<option value="#da645a" data-class="color-da645a">#da645a</option>
-								<option value="#79a38f" data-class="color-79a38f">#79a38f</option>
-								<option value="#c1d099" data-class="color-c1d099">#c1d099</option>
-								<option value="#f5eaaa" data-class="color-f5eaaa">#f5eaaa</option>
-								<option value="#f5be8f" data-class="color-f5be8f">#f5be8f</option>
-								<option value="#e1837b" data-class="color-e1837b">#e1837b</option>
-								<option value="#9bbaab" data-class="color-9bbaab">#9bbaab</option>
-								<option value="#d1dcb2" data-class="color-d1dcb2">#d1dcb2</option>
-								<option value="#f9eec0" data-class="color-f9eec0">#f9eec0</option>
-								<option value="#f7cda9" data-class="color-f7cda9">#f7cda9</option>
-								<option value="#e8a19b" data-class="color-e8a19b">#e8a19b</option>
-								<option value="#bdd1c8" data-class="color-bdd1c8">#bdd1c8</option>
-								<option value="#e1e7cd" data-class="color-e1e7cd">#e1e7cd</option>
-								<option value="#faf4d4" data-class="color-faf4d4">#faf4d4</option>
-								<option value="#fbdfc9" data-class="color-fbdfc9">#fbdfc9</option>
-								<option value="#f1c1bd" data-class="color-f1c1bd">#f1c1bd</option>
-							</select>
-						</li>
 						<li>
 							<label class="fs-field-label fs-anim-upper" for="q5">Кількість учасників/глядачів</label>
-							<input class="fs-anim-lower" id="q5" name="q5" type="number" placeholder="1" step="1" min="1" required/>
+							<input class="fs-anim-lower" id="q5" name="participants" type="number" placeholder="1" step="1" min="1" required/>
 
 
-                    <label class="fs-field-label fs-anim-upper" for="q7b">Цільова вудиторія</label>
+                    <label class="fs-field-label fs-anim-upper" for="q7b">Цільова аудиторія</label>
                     <input class="fs-anim-lower" id="q7b" name="q2" type="text" placeholder="Цей захід для..."
                            required/>
                 </li>
                 <li>
                     <label class="fs-field-label fs-anim-upper" for="q6">Потрібна репетиція</label>
-                    <input class="fs-anim-lower" onclick="needRepetition()" id="q6" name="q6" type="checkbox"/>
+                    <input class="fs-anim-lower" onclick="needRepetition()" id="q6" type="checkbox"/>
 
                     <div class="fs-radio-group fs-radio-custom clearfix fs-anim-lower" id="repetition-container">
+                    </div>
+                    <div class="fs-anim-lower" id="room-container-repetition">
+                    </div>
+                    <div class="fs-anim-lower" id="dates-container">
+
                     </div>
                 </li>
                 <li>
                     <label class="fs-field-label fs-anim-upper" for="q7a">Мета</label>
-                    <input class="fs-anim-lower" id="q7a" name="q2" type="text" placeholder="Мета" required/>
+                    <input class="fs-anim-lower" id="q7a" name="aim" type="text" placeholder="Мета" required/>
 
 
                     <label class="fs-field-label fs-anim-upper" for="q7c">Очікуваний результат на НаУКМА</label>
-                    <textarea class="fs-anim-lower" id="q7c" name="q4" placeholder="Я очікую..."></textarea>
+                    <textarea class="fs-anim-lower" id="q7c" name="desc" placeholder="Я очікую..."></textarea>
                 </li>
             </ol><!-- /fs-fields -->
             <button class="fs-submit" type="submit">Send answers</button>
@@ -152,16 +134,60 @@
         format: 'YYYY/MM/DD HH:mm',
     });
 
+    function chooseRoom(checked) {
+        const container = document.getElementById('room-container');
+
+        if (checked) {
+            container.innerHTML = "<label class=\"fs-field-label fs-anim-upper\" for=\"q2\">Номер аудиторії</label>\n" +
+                "                        <input class=\"fs-anim-lower\" id=\"q2\" name=\"room\" type=\"text\" placeholder=\"1-223\"\n" +
+                "                               required/>";
+        } else container.innerHTML = "";
+    }
+
+    function chooseRoomRepetition(checked) {
+        const container = document.getElementById('room-container-repetition');
+
+        if (checked) {
+            container.innerHTML = "<label class=\"fs-field-label fs-anim-upper\" for=\"q2\">Номер аудиторії</label>\n" +
+                "                        <input class=\"fs-anim-lower\" id=\"q2\" name=\"prepRoom\" type=\"text\" placeholder=\"1-223\"\n" +
+                "                               required/>";
+        } else container.innerHTML = "";
+    }
+
     function needRepetition() {
         const input = document.getElementById('q6');
         const container = document.getElementById('repetition-container');
+        const containerDates = document.getElementById('dates-container');
 
 
         if (input.checked) {
-            container.innerHTML = "<span><input id=\"q3b\" name=\"q3\" type=\"checkbox\" value=\"conversion\"/><label for=\"q3b\" class=\"radio-conversion\">Facebook</label></span>\n" +
-                "<span><input id=\"q3c\" name=\"q3\" type=\"checkbox\" value=\"social\"/><label for=\"q3c\" class=\"radio-social\">Viber</label></span>\n" +
-                "<span><input id=\"q3a\" name=\"q3\" type=\"checkbox\" value=\"mobile\"/><label for=\"q3a\" class=\"radio-mobile\">Telegram</label></span>\n";
-        } else container.innerHTML = "";
+            container.innerHTML = "<span><input onclick='chooseRoomRepetition(true)' id=\"q4d\" name=\"prepLocation\" type=\"radio\" value=\"room\"/><label for=\"q4d\" class=\"radio-room\">Корпус/Аудиторія</label></span>\n" +
+                "<span><input onclick='chooseRoomRepetition(false)' id=\"q4e\" name=\"prepLocation\" type=\"radio\" value=\"kmc\"/><label for=\"q4e\" class=\"radio-art\">КМЦ</label></span>\n" +
+                "<span><input onclick='chooseRoomRepetition(false)' id=\"q4f\" name=\"prepLocation\" type=\"radio\" value=\"library\"/><label for=\"q4f\" class=\"radio-library\">Наукова бібліотека</label></span>\n" +
+                "<span><input onclick='chooseRoomRepetition(false)' id=\"q4g\" name=\"prepLocation\" type=\"radio\" value=\"museum\"/><label for=\"q4g\" class=\"radio-museum\">Музей</label></span>\n";
+
+            containerDates.innerHTML = "<div>\n" +
+                "                        <label class=\"fs-field-label fs-anim-upper\" for=\"q2\">Дата початку репетиції</label>\n" +
+                "                        <input class=\"fs-anim-lower\" id=\"prepDateFrom\" name=\"prepDateFrom\" type=\"text\" placeholder=\"23/10/18 12:30\"\n" +
+                "                               required/>\n" +
+                "                    </div>\n" +
+                "\n" +
+                "                            <div>\n" +
+                "\t\t\t\t\t\t\t\t<label class=\"fs-field-label fs-anim-upper\" for=\"q2-2\">Дата кінця репетиції</label>\n" +
+                "\t\t\t\t\t\t\t\t<input class=\"fs-anim-lower\" id=\"prepDateTo\" name=\"prepDateTo\" type=\"text\" placeholder=\"24/10/18 14:30\" required/>\n" +
+                "\t\t\t\t\t\t\t</div>";
+
+            var pickerPrepFrom = new Picker(document.getElementById('prepDateFrom'), {
+                format: 'YYYY/MM/DD HH:mm',
+            });
+
+            var pickerPrepTo = new Picker(document.getElementById('prepDateTo'), {
+                format: 'YYYY/MM/DD HH:mm',
+            });
+        } else {
+            container.innerHTML = "";
+            containerDates.innerHTML = "";
+        }
     }
 
     (function () {
@@ -184,4 +210,5 @@
     })();
 </script>
 </body>
+
 </html>
