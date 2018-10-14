@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ua.edu.ukma.e_request.entities.Room;
-import ua.edu.ukma.e_request.entities.TechRequest;
 import ua.edu.ukma.e_request.resources.enums.PRMethods;
 import ua.edu.ukma.e_request.resources.enums.Role;
 import ua.edu.ukma.e_request.services.interfaces.RequestService;
+import ua.edu.ukma.e_request.services.interfaces.UserService;
 import ua.edu.ukma.e_request.utils.validator.InFuture;
 import ua.edu.ukma.e_request.utils.validator.UserRole;
 
@@ -27,13 +27,16 @@ import java.util.Set;
 @RequestMapping("/e_request")
 public class CreateOrderController {
     private final RequestService requestService;
+    private final UserService userService;
 
-    public CreateOrderController(RequestService requestService) {
+    public CreateOrderController(RequestService requestService, UserService userService) {
         this.requestService = requestService;
+        this.userService = userService;
     }
 
     @GetMapping("/create")
-    public String renderPage(){
+    public String renderPage(Model model){
+        model.addAttribute("assignableMentors", userService.getUserByRole(Role.MENTOR));
         return "e_request/creation/create_request";
     }
 
