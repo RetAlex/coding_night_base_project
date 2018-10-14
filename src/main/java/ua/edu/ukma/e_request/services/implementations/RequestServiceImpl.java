@@ -47,6 +47,11 @@ public class RequestServiceImpl implements RequestService {
     }
 
     @Override
+    public void declineOrder(long requestId, String reason, boolean finalDecision) {
+
+    }
+
+    @Override
     public List<RequestMinInfo> getRequestsForAdmin(int page) {
         return null;
     }
