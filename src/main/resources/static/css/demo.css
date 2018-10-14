@@ -1,13 +1,34 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway:400,700);
 @font-face {
-	font-weight: normal;
+	font-weight: 900;
 	font-style: normal;
-	font-family: 'GothamPro-Black';
+	font-family: 'GothamPro';
 	src:url('../fonts/codropsicons/GothamPro-Black.eot');
 	src:url('../fonts/codropsicons/GothamPro-Black.eot?#iefix') format('embedded-opentype'),
 		url('../fonts/codropsicons/GothamPro-Black.woff') format('woff'),
 		url('../fonts/codropsicons/GothamPro-Black.ttf') format('truetype')
 }
+
+@font-face {
+    font-weight: 100;
+    font-style: normal;
+    font-family: 'GothamPro';
+    src:url('../fonts/codropsicons/GothamPro-Light.eot');
+    src:url('../fonts/codropsicons/GothamPro-Light.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/codropsicons/GothamPro-Light.woff') format('woff'),
+    url('../fonts/codropsicons/GothamPro-Light.ttf') format('truetype')
+}
+
+@font-face {
+    font-weight: 500;
+    font-style: normal;
+    font-family: 'GothamPro';
+    src:url('../fonts/codropsicons/GothamPro-Medium.eot');
+    src:url('../fonts/codropsicons/GothamPro-Medium.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/codropsicons/GothamPro-Medium.woff') format('woff'),
+    url('../fonts/codropsicons/GothamPro-Medium.ttf') format('truetype')
+}
+
 
 *, *:after, *:before { -webkit-box-sizing: border-box; box-sizing: border-box; }
 .clearfix:before, .clearfix:after { content: ''; display: table; }
@@ -20,9 +41,9 @@ html, body, .container {
 body {
 	background: #3b3f45;
 	color: #fff;
-	font-weight: 400;
+	font-weight: 900;
 	font-size: 1em;
-	font-family: 'GothamPro-Black', Arial, sans-serif;
+	font-family: 'GothamPro', Arial, sans-serif;
 	overflow: hidden;
 	overflow-y: scroll;
 	min-height: 590px;
