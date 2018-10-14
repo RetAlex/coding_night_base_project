@@ -14,8 +14,4 @@ public class RoomServiceImpl implements RoomService {
         this.roomDAO = roomDAO;
     }
 
-    @Override
-    public FondRoom getByBuild(String username) {
-        return  roomDAO.getByBuild(username);
-    }
 }
