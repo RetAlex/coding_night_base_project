@@ -67,20 +67,16 @@ public class Request implements Serializable {
     @Column(name = "request_id")
     private Long id;
 
-    @Basic
-    @CreationTimestamp
-    @Column(nullable = false, insertable = false)
-    private Timestamp creationTimestamp;
 
     @Column(nullable = false)
     private String eventName;
 
     @Basic
     @Column(nullable = false)
-    private Timestamp startDateTime;
+    private Date startDateTime;
     @Basic
     @Column(nullable = false)
-    private Timestamp finishDateTime;
+    private Date finishDateTime;
 
     @ManyToOne
     @JoinColumn(name = "room_id")
@@ -91,9 +87,9 @@ public class Request implements Serializable {
     private Room preparationRoomName;
 
     @Basic
-    private Timestamp prepStartDateTime;
+    private Date prepStartDateTime;
     @Basic
-    private Timestamp prepFinishDateTime;
+    private Date prepFinishDateTime;
 
     private Integer expectedAmountOfInvolved;
 

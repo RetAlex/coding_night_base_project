@@ -2,6 +2,7 @@ package ua.edu.ukma.e_request.controller;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -21,6 +22,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Set;
 
 @Controller
@@ -58,10 +60,12 @@ public class CreateOrderController {
         private String title;
         @NotNull
         @InFuture
-        private Timestamp dateFrom;
+        @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
+        private Date dateFrom;
         @NotNull
         @InFuture
-        private Timestamp dateTo;
+        @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
+        private Date dateTo;
         private Set<PRMethods> pr;
         @NotNull
         @UserRole(requiredRole = {Role.MENTOR})
@@ -73,8 +77,10 @@ public class CreateOrderController {
         private String audition;
         private Room room;
         private Room prepRoom;
-        private Timestamp prepDateFrom;
-        private Timestamp prepDateTo;
+        @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
+        private Date prepDateFrom;
+        @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
+        private Date prepDateTo;
         private int participants;
     }
 }
