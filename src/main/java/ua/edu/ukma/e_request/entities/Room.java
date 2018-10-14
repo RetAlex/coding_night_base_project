@@ -24,4 +24,9 @@ public class Room implements Serializable {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User owner;
+
+    @Override
+    public String toString() {
+        return String.format("name='%s', building='%s', owner_id='%d'", name, building, owner.getId());
+    }
 }
