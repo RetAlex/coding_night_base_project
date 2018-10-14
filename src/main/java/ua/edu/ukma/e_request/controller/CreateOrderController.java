@@ -72,6 +72,6 @@ public class CreateOrderController {
         private Room prepRoom;
         private Timestamp prepDateFrom;
         private Timestamp prepDateTo;
-        private Integer participants;
+        private int participants;
     }
 }

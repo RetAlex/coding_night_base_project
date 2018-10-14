@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 /**
- * Created by nasti on 10/14/2018.
+ * Created by a.bondarenko on 10/14/2018.
  */
 @Entity(name = "StatusChanges")
 @Table(name = "e_status_changes")
@@ -21,7 +21,7 @@ public class StatusChanges implements Serializable{
     private Timestamp timestamp;
 
     @OneToOne
-    @JoinColumn(name = "change_id")
+    @JoinColumn(name = "prev_change_id")
     private StatusChanges previousStatus;
 
     @Enumerated(EnumType.STRING)
@@ -34,4 +34,17 @@ public class StatusChanges implements Serializable{
 
     @Column(columnDefinition = "TEXT")
     private String refusalDescription;
+
+    @Override
+    public String toString() {
+        return String.format(
+                "id=%d, timestamp=%s, previousStatusId=%d, status=%s, request_id=%d, refusalDescription=%s",
+                id,
+                timestamp.toString(),
+                previousStatus.id,
+                status.name(),
+                request.getId(),
+                refusalDescription
+        );
+    }
 }
