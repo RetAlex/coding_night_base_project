@@ -65,7 +65,13 @@
                 <input style="display: none" name="request_id" th:value="${request.id}">
                 <input type="submit" value="Accept">
             </form>
-            <button>Decline</button>
+            <form action="/e_request/admin/declineRequest" method="post">
+                <input style="display: none" name="request_id" th:value="${request.id}">
+                <textarea name="reason" placeholder="Причина"></textarea>
+                <label>Критично</label>
+                <input type="checkbox" value="true" name="final">
+                <input type="submit" value="Decline">
+            </form>
         </article>
     </div>
 </main>
