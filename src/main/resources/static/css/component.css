@@ -1,3 +1,4 @@
+
 /* Main form wrapper */
 .fs-form-wrap {
 	position: relative;
@@ -1007,12 +1008,12 @@ input[type=text]::-ms-clear {
 		padding: 0 90px 0 2em;
 		width: 100%;
 		font-size: 1.5em;
-		-webkit-transform: translate3d(0,-5px,0);
-		transform: translate3d(0,-5px,0);
+		-webkit-transform: translate3d(0, -5px, 0);
+		transform: translate3d(0, -5px, 0);
 	}
 
 	.fs-message-error.fs-show {
-		-webkit-transform: translate3d(0,0,0);
-		transform: translate3d(0,0,0);
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
 	}
 }

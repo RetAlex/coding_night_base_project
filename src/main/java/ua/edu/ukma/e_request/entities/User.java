@@ -3,6 +3,7 @@ package ua.edu.ukma.e_request.entities;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 import ua.edu.ukma.e_request.resources.enums.Role;
 
 import javax.persistence.*;
@@ -17,6 +18,7 @@ import java.io.Serializable;
 @Setter
 @Getter
 @NoArgsConstructor
+@ToString
 public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
