@@ -25,4 +25,7 @@ public interface RequestService {
      * @return true if user has access to order
      */
     default boolean isAllowedToUpdateRequest(String username, long orderId) { return true; }
+
+    void applyOrder(long requestId);
+    List<RequestMinInfo> getRequestsForAdmin(int page);
 }

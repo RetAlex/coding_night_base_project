@@ -21,4 +21,15 @@ public class UserDAOTest {
     public void findUserByUsername() {
         System.out.println(userDAO.findUserByUsername("user"));
     }
+
+
+    @Test
+    public void getUserByRole() {
+    }
+
+    @Test
+    public void getAllRooms() {
+        userDAO.getAllRooms().forEach(System.out::println);
+    }
+
 }

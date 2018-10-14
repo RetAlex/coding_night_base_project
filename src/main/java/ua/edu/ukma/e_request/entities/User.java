@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import ua.edu.ukma.e_request.resources.dto.FondRoom;
 import ua.edu.ukma.e_request.resources.enums.Role;
 
 import javax.persistence.*;
@@ -19,6 +20,31 @@ import java.io.Serializable;
 @Getter
 @NoArgsConstructor
 @ToString
+@SqlResultSetMappings({
+        @SqlResultSetMapping(
+                name = "getAllRoomsMapping",
+                classes = @ConstructorResult(
+                        targetClass = FondRoom.class,
+                        columns = {
+                                @ColumnResult(name = "id",type = Long.class),
+                                @ColumnResult(name = "name",type = String.class),
+                                @ColumnResult(name = "building",type = String.class),
+                                @ColumnResult(name = "username",type = String.class),
+                        }
+                )
+        )})
+@NamedNativeQueries({
+        @NamedNativeQuery(name = "getAllRooms",
+                query = "SELECT " +
+                        "    r.room_id as id, " +
+                        "    r.name as name, " +
+                        "    r.building as building, " +
+                        "    e.username as username " +
+                        "FROM " +
+                        "    e_users as e inner join e_rooms r on e.user_id=r.user_id" +
+                        " where e.role='FOND'", resultSetMapping = "getAllRoomsMapping"
+        )
+})
 public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
