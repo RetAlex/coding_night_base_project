@@ -1,5 +1,6 @@
 package ua.edu.ukma.e_request.entities;
 
+import org.hibernate.annotations.CreationTimestamp;
 import ua.edu.ukma.e_request.resources.enums.RequestStatus;
 
 import javax.persistence.*;
@@ -18,11 +19,12 @@ public class StatusChanges implements Serializable{
     private Long id;
 
     @Column(name = "ts", nullable = false)
+    @CreationTimestamp
     private Timestamp timestamp;
 
     @OneToOne
     @JoinColumn(name = "prev_change_id")
-    private StatusChanges previousStatus;
+    private RequestStatus previousStatus;
 
     @Enumerated(EnumType.STRING)
     @Column(length = 64)
@@ -35,9 +37,15 @@ public class StatusChanges implements Serializable{
     @Column(columnDefinition = "TEXT")
     private String refusalDescription;
 
+    public StatusChanges(Request current, RequestStatus previousStatus) {
+        this.status = current.getCurrentStatus();
+        this.request = current;
+        this.previousStatus = previousStatus;
+    }
+
     @Override
     public String toString() {
-        String previousStatusId = (previousStatus == null) ? "null" : String.valueOf(previousStatus.id);
+        String previousStatusId = (previousStatus == null) ? "null" : String.valueOf(previousStatus);
         return String.format(
                 "id=%d, timestamp=%s, previousStatusId=%s, status=%s, request_id=%d, refusalDescription=%s",
                 id,

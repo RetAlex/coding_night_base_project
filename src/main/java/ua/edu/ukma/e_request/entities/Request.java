@@ -146,5 +146,6 @@ public class Request implements Serializable {
        this.roomName = createRequestForm.getRoom();
        this.preparationRoomName = createRequestForm.getPrepRoom();
         this.prepStartDateTime = createRequestForm.getPrepDateFrom();
+        this.currentStatus =RequestStatus.PENDING_FOR_SUBMITION;
     }
 }
