@@ -32,5 +32,5 @@ public interface RequestService {
 
     List<RequestMinInfo> getRequestsForAdmin(int page);
 
-    void assignToMentor(long orderId, long mentorId);
+    void assignToMentor(long requestId, long mentorId);
 }

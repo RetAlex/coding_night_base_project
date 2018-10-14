@@ -138,6 +138,6 @@ public class Request implements Serializable {
        if(createRequestForm.getPrepRoom()==0) this.preparationRoomName=null;
        else this.preparationRoomName = new Room(createRequestForm.getPrepRoom());
         this.prepStartDateTime = createRequestForm.getPrepDateFrom();
-        this.currentStatus =RequestStatus.PENDING_FOR_SUBMITION;
+        this.currentStatus = RequestStatus.PENDING_FOR_SUBMITION;
     }
 }

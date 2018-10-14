@@ -15,4 +15,8 @@ public enum RequestStatus implements Serializable {
     public RequestStatus getPrevious() {
         return RequestStatus.values()[this.ordinal() - 1];
     }
+
+    public boolean equals(RequestStatus requestStatus) {
+        return this.name().equals(requestStatus.name());
+    }
 }
