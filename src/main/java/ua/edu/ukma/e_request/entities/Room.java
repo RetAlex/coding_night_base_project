@@ -3,9 +3,13 @@ package ua.edu.ukma.e_request.entities;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import ua.edu.ukma.e_request.resources.dto.FondRoom;
+import ua.edu.ukma.e_request.resources.dto.RequestMinInfo;
+import ua.edu.ukma.e_request.resources.enums.RequestStatus;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by a.bondarenko on 10/13/2018.
@@ -15,6 +19,31 @@ import java.io.Serializable;
 @Setter
 @Getter
 @NoArgsConstructor
+@SqlResultSetMappings({
+        @SqlResultSetMapping(
+                name = "findRoomByBuildMapping",
+                classes = @ConstructorResult(
+                        targetClass = FondRoom.class,
+                        columns = {
+                                @ColumnResult(name = "id",type = Long.class),
+                                @ColumnResult(name = "name",type = String.class),
+                                @ColumnResult(name = "building",type = String.class),
+                                @ColumnResult(name = "username",type = String.class),
+                        }
+                )
+        )})
+@NamedNativeQueries({
+        @NamedNativeQuery(name = "findRoomByBuild",
+                query = "SELECT " +
+                        "    r.room_id as id, " +
+                        "    r.name as name, " +
+                        "    r.building as building, " +
+                        "    e.username as username " +
+                        "FROM " +
+                        "    e_rooms as r inner join e_users e on e.user_id=r.user_id" +
+                        " where e.username=:username", resultSetMapping = "findRoomByBuildMapping"
+        )
+})
 public class Room implements Serializable {
     @Id
     @Column(name = "room_id")
