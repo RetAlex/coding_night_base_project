@@ -134,11 +134,9 @@
     function chooseRoom(checked) {
         const container = document.getElementById('room-container');
 
-        if (checked) {
             container.innerHTML = "<label class=\"fs-field-label fs-anim-upper\" for=\"q2\">Номер аудиторії</label>\n" +
                 "                        <input class=\"fs-anim-lower\" id=\"q2\" name=\"room\" type=\"text\" placeholder=\"1-223\"\n" +
                 "                               required/>";
-        } else container.innerHTML = "";
     }
 
     function chooseRoomRepetition(checked) {
