@@ -26,6 +26,7 @@ public class ThirdPartyToken implements Serializable {
     @Column(nullable = false)
     private Timestamp expirationDateTime;
 
-    @ManyToMany(mappedBy = "thirdSides")
-    private Set<Request> requests = new HashSet<>();
+    @ManyToOne
+    @JoinColumn(name = "request_id")
+    private Request request;
 }

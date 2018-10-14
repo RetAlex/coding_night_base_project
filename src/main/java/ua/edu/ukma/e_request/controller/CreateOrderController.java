@@ -61,7 +61,7 @@ public class CreateOrderController {
         private Timestamp dateTo;
         private Set<PRMethods> pr;
         @NotNull
-        @UserRole(requiredRole = {Role.TEACHER})
+        @UserRole(requiredRole = {Role.MENTOR})
         private long curator;
 
         @Size( max = 100)

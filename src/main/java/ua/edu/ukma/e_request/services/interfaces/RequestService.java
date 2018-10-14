@@ -26,6 +26,8 @@ public interface RequestService {
      */
     default boolean isAllowedToUpdateRequest(String username, long orderId) { return true; }
 
-    void applyOrder(long requestId);
+    void applyOrder(long requestId) throws RequestNotExistsException;
+
+    void declineOrder(long requestId, String reason, boolean finalDecision);
     List<RequestMinInfo> getRequestsForAdmin(int page);
 }
