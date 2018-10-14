@@ -13,6 +13,6 @@ import java.util.List;
  */
 @Repository
 public interface StatusChangesDAO extends JpaRepository<StatusChanges, Long> {
-    @Query(nativeQuery = true, value = "SELECT * FROM e_status_changes WHERE request_id.request_request_id=?")
+    @Query(nativeQuery = true, value = "SELECT * FROM e_status_changes WHERE request_id=?")
     List<StatusChanges> getStatusChangesByRequestId(@Param("request_id") Long requestId);
 }
