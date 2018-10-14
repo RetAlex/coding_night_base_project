@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="en" class="no-js" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,7 +20,7 @@
         <div class="fs-title">
             <h1>E-ПОДАННЯ</h1>
         </div>
-        <form id="myform" class="fs-form fs-form-full" autocomplete="off">
+        <form id="myform" class="fs-form fs-form-full" autocomplete="off" action="/e_request/create" method="post">
             <ol class="fs-fields">
                 <li>
                     <label class="fs-field-label fs-anim-upper" for="q1">Назва заходу</label>
@@ -106,8 +106,7 @@
                 <li>
                     <label class="fs-field-label fs-anim-upper" for="q7a">Куратор</label>
                     <select class="cs-select cs-skin-boxes fs-anim-lower">
-                        <option value="" disabled selected>Оберіть куратора</option>
-                        <option value="glybovets" data-class="color-588c75">Глибовець</option>
+                        <option th:each="mentor:${assignableMentors}" th:text="${mentor.getUsername()}" th:value="${mentor.getId()}" value="glybovets" data-class="color-588c75">Глибовець</option>
                     </select>
                 </li>
             </ol><!-- /fs-fields -->

@@ -67,4 +67,9 @@ public class RequestServiceImpl implements RequestService {
     public List<RequestMinInfo> getRequestsForAdmin ( int page){
         return null;//return requestDao.getRequestForAdmin();
     }
+
+    @Override
+    public void assignToMentor(long orderId, long mentorId) {
+
+    }
 }
