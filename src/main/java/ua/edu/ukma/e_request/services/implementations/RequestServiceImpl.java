@@ -4,7 +4,6 @@ import org.springframework.stereotype.Service;
 import ua.edu.ukma.e_request.controller.CreateOrderController;
 import ua.edu.ukma.e_request.entities.Request;
 import ua.edu.ukma.e_request.entities.ThirdPartyToken;
-import ua.edu.ukma.e_request.entities.ThirdPartyToken_Request;
 import ua.edu.ukma.e_request.repositories.RequestDAO;
 import ua.edu.ukma.e_request.repositories.ThirdPartyTokenDAO;
 import ua.edu.ukma.e_request.repositories.UserDAO;
@@ -59,7 +58,12 @@ public class RequestServiceImpl implements RequestService {
         requestDao.save(current);
     }
 
-        @Override
+    @Override
+    public void declineOrder(long requestId, String reason, boolean finalDecision) {
+
+    }
+
+    @Override
         public List<RequestMinInfo> getRequestsForAdmin ( int page){
             return null;//return requestDao.getRequestForAdmin();
         }
