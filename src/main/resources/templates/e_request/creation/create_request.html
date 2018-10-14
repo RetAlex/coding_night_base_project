@@ -80,6 +80,7 @@
                             <input style="opacity: 0" id="q6" type="checkbox"/>
                             <label for="q3b" class="radio-clock" onclick="needRepetition()">Потрібна репетиція</label>
                         </span>
+                    </div>
 <!--
                     <div class="fs-fields"></div>
                     <label class="fs-field-label fs-anim-upper" for="q6">Потрібна репетиція</label>
@@ -163,7 +164,8 @@
         const input = document.getElementById('q6');
         const container = document.getElementById('repetition-container');
         const containerDates = document.getElementById('dates-container');
-
+        const containerRooms = document.getElementById('room-container-repetition');
+        input.checked = !input.checked;
 
         if (input.checked) {
             container.innerHTML = "<span><input onclick='chooseRoomRepetition(true)' id=\"q4d\" name=\"prepLocation\" type=\"radio\" value=\"room\"/><label for=\"q4d\" class=\"radio-room\">Корпус/Аудиторія</label></span>\n" +
@@ -192,7 +194,9 @@
         } else {
             container.innerHTML = "";
             containerDates.innerHTML = "";
+            containerRooms.innerHTML = "";
         }
+
     }
 
     (function () {
