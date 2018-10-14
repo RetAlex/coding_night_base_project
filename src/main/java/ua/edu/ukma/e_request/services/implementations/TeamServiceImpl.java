@@ -69,7 +69,22 @@ public class TeamServiceImpl implements TeamService {
 
     @Override
     public void removeFromTeam(long userId, long requestId) {
+        try {
+            Long memberId = findTeamMemberAndDelete(userId, requestId);
+            Logger.log("removeFromTeam :: Team member with team_member_id=" + memberId + " i successfully removed");
+        } catch (NullPointerException e) {
+            Logger.logException("removeFromTeam :: Failed to remove team member by user_id and request_id", e, true);
+        }
+    }
+
+    private Long findTeamMemberAndDelete(long userId, long requestId) throws NullPointerException {
         TeamMembers member = teamMembersDAO.getTeamMemberByRequestIdAndUserId(requestId, userId);
+        if (member == null) {
+            String message = "findTeamMemberAndDelete :: filed to find a team member with request_id=" + requestId +
+                    "and user_id=" + userId;
+            throw new NullPointerException(message);
+        }
         teamMembersDAO.delete(member);
+        return member.getId();
     }
 }
