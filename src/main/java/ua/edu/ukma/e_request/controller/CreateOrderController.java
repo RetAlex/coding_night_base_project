@@ -2,6 +2,7 @@ package ua.edu.ukma.e_request.controller;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -9,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import ua.edu.ukma.e_request.entities.Room;
 import ua.edu.ukma.e_request.resources.enums.PRMethods;
 import ua.edu.ukma.e_request.resources.enums.Role;
 import ua.edu.ukma.e_request.services.interfaces.RequestService;
@@ -20,8 +20,8 @@ import ua.edu.ukma.e_request.utils.validator.UserRole;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.sql.Timestamp;
-import java.util.Set;
+import java.util.Date;
+import java.util.List;
 
 @Controller
 @RequestMapping("/e_request")
@@ -46,8 +46,8 @@ public class CreateOrderController {
             model.addAttribute("errors", bindingResult.getAllErrors());
         }
         //TODO add student session id
-        requestService.createRequest(createRequestForm,1  );
-        return "e_request/creation/request_created";
+        long requestId = requestService.createRequest(createRequestForm,1  );
+        return "redirect:/e_request/requests/"+requestId;
     }
 
     @Data
@@ -58,11 +58,13 @@ public class CreateOrderController {
         private String title;
         @NotNull
         @InFuture
-        private Timestamp dateFrom;
+        @DateTimeFormat(pattern = "yyyy/MM/dd HH:mm")
+        private Date dateFrom;
         @NotNull
         @InFuture
-        private Timestamp dateTo;
-        private Set<PRMethods> pr;
+        @DateTimeFormat(pattern = "yyyy/MM/dd HH:mm")
+        private Date dateTo;
+        private List<PRMethods> pr;
         @NotNull
         @UserRole(requiredRole = {Role.MENTOR})
         private long curator;
@@ -71,10 +73,12 @@ public class CreateOrderController {
         private String desc;
         private String aim;
         private String audition;
-        private Room room;
-        private Room prepRoom;
-        private Timestamp prepDateFrom;
-        private Timestamp prepDateTo;
+        private long room;
+        private long prepRoom;
+        @DateTimeFormat(pattern = "yyyy/MM/dd HH:mm")
+        private Date prepDateFrom;
+        @DateTimeFormat(pattern = "yyyy/MM/dd HH:mm")
+        private Date prepDateTo;
         private int participants;
     }
 }

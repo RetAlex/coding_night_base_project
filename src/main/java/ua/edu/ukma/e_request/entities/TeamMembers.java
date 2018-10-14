@@ -37,6 +37,8 @@ public class TeamMembers implements Serializable{
 
     private String specialisation;
 
+    private double hours;
+
     @Override
     public String toString() {
         return String.format("id=$d, user_id=%d, request_id=%d, responsibility=%s, phoneNumber=%s, specialisation=%s",

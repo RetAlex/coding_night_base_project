@@ -30,21 +30,21 @@
                 <li>
                     <div>
                         <label class="fs-field-label fs-anim-upper" for="q2">Дата початку заходу</label>
-                        <input class="fs-anim-lower" id="q2" name="dateFrom" type="text" pattern="dd/MM/yyyy HH:mm" placeholder="23/10/18 12:30"
+                        <input class="fs-anim-lower" id="q2" name="dateFrom" type="text" placeholder="23/10/18 12:30"
                                required/>
                     </div>
 
                             <div>
 								<label class="fs-field-label fs-anim-upper" for="q2-2">Дата кінця заходу</label>
-								<input class="fs-anim-lower" id="q2-2" name="dateTo" type="text" pattern="dd/MM/yyyy HH:mm" placeholder="24/10/18 14:30" required/>
+								<input class="fs-anim-lower" id="q2-2" name="dateTo" type="text" placeholder="24/10/18 14:30" required/>
 							</div>
 						</li>
 						<li data-input-trigger>
 							<label class="fs-field-label fs-anim-upper" for="q3">PR</label>
 							<div class="fs-radio-group fs-radio-custom clearfix fs-anim-lower">
-								<span><input style="opacity: 0" id="q3b" name="pr" type="checkbox" value="facebook"/><label for="q3b" class="radio-conversion">Facebook</label></span>
-								<span><input style="opacity: 0" id="q3c" name="pr" type="checkbox" value="viber"/><label for="q3c" class="radio-social">Viber</label></span>
-								<span><input style="opacity: 0" id="q3a" name="pr" type="checkbox" value="telegram"/><label for="q3a" class="radio-mobile">Telegram</label></span>
+								<span><input style="opacity: 0" id="q3b" name="pr" type="checkbox" value="Facebook"/><label for="q3b" class="radio-conversion">Facebook</label></span>
+								<span><input style="opacity: 0" id="q3c" name="pr" type="checkbox" value="Email"/><label for="q3c" class="radio-social">Viber</label></span>
+								<span><input style="opacity: 0" id="q3a" name="pr" type="checkbox" value="Telegram"/><label for="q3a" class="radio-mobile">Telegram</label></span>
 							</div>
 						</li>
 
@@ -69,7 +69,7 @@
 
                             <div>
                                 <label class="fs-field-label fs-anim-upper" for="q7b">Цільова аудиторія</label>
-                                <input class="fs-anim-lower" id="q7b" name="q2" type="text" placeholder="Цей захід для..."
+                                <input class="fs-anim-lower" id="q7b" name="audition" type="text" placeholder="Цей захід для..."
                                        required/>
                             </div>
 
@@ -105,7 +105,7 @@
                 </li>
                 <li>
                     <label class="fs-field-label fs-anim-upper" for="q7a">Куратор</label>
-                    <select class="cs-select cs-skin-boxes fs-anim-lower">
+                    <select class="cs-select cs-skin-boxes fs-anim-lower" name="curator">
                         <option th:each="mentor:${assignableMentors}" th:text="${mentor.getUsername()}" th:value="${mentor.getId()}" value="glybovets" data-class="color-588c75">Глибовець</option>
                     </select>
                 </li>
@@ -174,13 +174,13 @@
 
             containerDates.innerHTML = "<div>\n" +
                 "<label class=\"fs-field-label fs-anim-upper\" for=\"q2\">Дата початку репетиції</label>\n" +
-                "<input class=\"fs-anim-lower\" id=\"prepDateFrom\" name=\"prepDateFrom\" type=\"text\" pattern='dd/MM/yyyy HH:mm' placeholder=\"23/10/18 12:30\"\n" +
+                "<input class=\"fs-anim-lower\" id=\"prepDateFrom\" name=\"prepDateFrom\" type=\"text\" placeholder=\"23/10/18 12:30\"\n" +
                 "required/>\n" +
                 "</div>\n" +
                 "\n" +
                 "<div>\n" +
                 "\t\t\t\t\t\t\t\t<label class=\"fs-field-label fs-anim-upper\" for=\"q2-2\">Дата кінця репетиції</label>\n" +
-                "\t\t\t\t\t\t\t\t<input class=\"fs-anim-lower\" id=\"prepDateTo\" name=\"prepDateTo\" type=\"text\" pattern='dd/MM/yyyy HH:mm' placeholder=\"24/10/18 14:30\" required/>\n" +
+                "\t\t\t\t\t\t\t\t<input class=\"fs-anim-lower\" id=\"prepDateTo\" name=\"prepDateTo\" type=\"text\" placeholder=\"24/10/18 14:30\" required/>\n" +
                 "\t\t\t\t\t\t\t</div>";
 
             var pickerPrepFrom = new Picker(document.getElementById('prepDateFrom'), {

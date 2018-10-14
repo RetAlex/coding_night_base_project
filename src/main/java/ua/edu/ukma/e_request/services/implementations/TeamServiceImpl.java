@@ -11,6 +11,8 @@ import ua.edu.ukma.e_request.repositories.UserDAO;
 import ua.edu.ukma.e_request.services.interfaces.TeamService;
 import ua.edu.ukma.e_request.utils.logger.Logger;
 
+import java.util.List;
+
 @Service
 public class TeamServiceImpl implements TeamService {
     private final TeamMembersDAO teamMembersDAO;
@@ -50,6 +52,7 @@ public class TeamServiceImpl implements TeamService {
         teamMember.setResponsibility(assignToTeamForm.getResponsibility());
         teamMember.setPhoneNumber(assignToTeamForm.getPhone());
         teamMember.setSpecialisation(assignToTeamForm.getSpecialization());
+        teamMember.setHours(assignToTeamForm.getHours());
         return teamMember;
     }
 
@@ -75,6 +78,11 @@ public class TeamServiceImpl implements TeamService {
         } catch (NullPointerException e) {
             Logger.logException("removeFromTeam :: Failed to remove team member by user_id and request_id", e, true);
         }
+    }
+
+    @Override
+    public List<TeamMembers> getByRequest(long requestId) {
+        return teamMembersDAO.getTeamMembersByRequest(requestId);
     }
 
     private Long findTeamMemberAndDelete(long userId, long requestId) throws NullPointerException {

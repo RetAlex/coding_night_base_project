@@ -4,12 +4,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import ua.edu.ukma.e_request.resources.dto.FondRoom;
-import ua.edu.ukma.e_request.resources.dto.RequestMinInfo;
-import ua.edu.ukma.e_request.resources.enums.RequestStatus;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * Created by a.bondarenko on 10/13/2018.
@@ -57,5 +54,9 @@ public class Room implements Serializable {
     @Override
     public String toString() {
         return String.format("name='%s', building='%s', owner_id='%d'", name, building, owner.getId());
+    }
+
+    public Room(Long id) {
+        this.id = id;
     }
 }
