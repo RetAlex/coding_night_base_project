@@ -3,7 +3,6 @@ package ua.edu.ukma.e_request.entities;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
 import ua.edu.ukma.e_request.controller.CreateOrderController;
 import ua.edu.ukma.e_request.resources.dto.RequestMinInfo;
 import ua.edu.ukma.e_request.resources.enums.RequestStatus;
@@ -66,11 +65,6 @@ public class Request implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "request_id")
     private Long id;
-
-    @Basic
-    @CreationTimestamp
-    @Column(nullable = false, insertable = false)
-    private Timestamp creationTimestamp;
 
     @Column(nullable = false)
     private String eventName;
