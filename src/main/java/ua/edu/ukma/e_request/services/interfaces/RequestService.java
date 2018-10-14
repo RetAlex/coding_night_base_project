@@ -30,4 +30,6 @@ public interface RequestService {
 
     void declineOrder(long requestId, String reason, boolean finalDecision);
     List<RequestMinInfo> getRequestsForAdmin(int page);
+
+    void assignToMentor(long orderId, long mentorId);
 }

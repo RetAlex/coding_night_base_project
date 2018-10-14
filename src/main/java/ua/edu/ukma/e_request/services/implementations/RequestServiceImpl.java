@@ -64,7 +64,7 @@ public class RequestServiceImpl implements RequestService {
     }
 
     @Override
-        public List<RequestMinInfo> getRequestsForAdmin ( int page){
-            return null;//return requestDao.getRequestForAdmin();
-        }
+    public List<RequestMinInfo> getRequestsForAdmin ( int page){
+        return null;//return requestDao.getRequestForAdmin();
     }
+}
