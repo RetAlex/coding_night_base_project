@@ -48,7 +48,7 @@ import java.util.Set;
                 "    u.finish_date_time as finishDateTime, " +
                 "    u.purpose as purpose, " +
                 "    u.request_id as id," +
-                "    u.current_status as currentStatus " +
+                "    u.current_status  as currentStatus " +
                 "FROM " +
                 "    e_requests as u inner join e_users e on e.user_id=u.student_id" +
                 " where e.username=:param1 limit 10 offset :param2", resultSetMapping = "findAllRequestForUserMapping"
@@ -127,7 +127,7 @@ public class Request implements Serializable {
     private Set<TechRequest> techRequests = new HashSet<>();
 
     @Enumerated(EnumType.STRING)
-    @Column(length = 64)
+    @Column(length = 64, name = "currentStatus")
     private RequestStatus currentStatus;
 
     public Request(CreateOrderController.CreateRequestForm createRequestForm, long studentId) {

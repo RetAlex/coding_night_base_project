@@ -18,7 +18,7 @@ public interface UserDAO extends JpaRepository<User, Long> {
     @Query(value = "select * from e_users u where u.role=?1", nativeQuery = true)
     List<User> getUserByRole(String role);
 
-    @Query(name = "getAllRooms", nativeQuery = true)
+    @Query(name = "getAllFONDRooms", nativeQuery = true)
     List<FondRoom> getAllRooms();
 
     @Query(nativeQuery = true, value = "SELECT * FROM e_users WHERE user_id=?")

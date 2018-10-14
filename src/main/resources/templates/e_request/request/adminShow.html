@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fullscreen Form Interface</title>
+    <meta name="description" content="Fullscreen Form Interface: A distraction-free form concept with fancy animations" />
+    <meta name="keywords" content="fullscreen form, css animations, distraction-free, web design" />
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/assets/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/component.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/cs-select.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/cs-skin-boxes.css" />
+    <script src="/assets/js/modernizr.custom.js"></script>
+</head>
+<body>
+<header class="header">
+    <div class="header__profile">
+        <img src="https://via.placeholder.com/50x50" alt="">
+
+        <div class="header__info">
+            <span class="info__nickname">aligator228</span>
+
+            <span>Пахвалов Ю.Р.</span>
+        </div>
+    </div>
+
+    <button class="fs-submit">Вийти з акаунту</button>
+</header>
+
+<main class="main">
+    <aside class="aside">
+        <a href="javascript:void(0)">Зміни</a>
+        <a href="javascript:void(0)">Інше</a>
+    </aside>
+
+    <div class="main__block">
+        <article class="main__container">
+            <div class="container__title">
+                <h3 th:text="${request.eventName}">Похід за грибами</h3>
+
+                <div class="container__timestamp">
+                    <span th:text="${request.startDateTime}">24/10/18 14:30</span>
+                    <span th:text="${request.finishDateTime}">24/10/18 16:30</span>
+                </div>
+            </div>
+
+            <div class="container__title">
+                <div class="container__title-name">
+                    <span class="status" th:text="${request.currentStatus}">розглядається</span>
+                </div>
+
+                <button class="fs-submit">Розгорнути</button>
+            </div>
+            <p class="main__container-text" th:text="${request.purpose}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium assumenda commodi cum cumque delectus doloremque dolores dolorum ea eligendi enim esse excepturi explicabo fugiat inventore ipsam labore magnam maxime minima nam, natus nemo neque nihil possimus quibusdam ratione reiciendis rem repellat sapiente sint voluptatem! Earum facilis iure molestiae nisi perferendis.</p>
+
+            <p class="main__container-text" th:text="${request.expectedResult}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium assumenda commodi cum cumque delectus doloremque dolores dolorum ea eligendi enim esse excepturi explicabo fugiat inventore ipsam labore magnam maxime minima nam, natus nemo neque nihil possimus quibusdam ratione reiciendis rem repellat sapiente sint voluptatem! Earum facilis iure molestiae nisi perferendis.</p>
+
+            <!--					<div class="main__container-organizators">
+                                    <span>Організатори:</span>
+                                </div>-->
+            <form action="/e_request/admin/applyRequest" method="post">
+                <input style="display: none" name="request_id" th:value="${request.id}">
+                <input type="submit" value="Accept">
+            </form>
+            <button>Decline</button>
+        </article>
+    </div>
+</main>
+</body>
+</html>

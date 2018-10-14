@@ -2,12 +2,9 @@ package ua.edu.ukma.e_request.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import ua.edu.ukma.e_request.services.interfaces.RequestService;
-
+import ua.edu.ukma.e_request.utils.exceptions.RequestNotExistsException;
 @Controller
 @RequestMapping("/e_request/admin")
 public class AdminRequestController {
@@ -23,9 +20,21 @@ public class AdminRequestController {
         return "e_request/request/showAll";
     }
 
+    @GetMapping("/{orderId}")
+    public String showOrder(Model model, @PathVariable("orderId") long orderId) throws RequestNotExistsException {
+        model.addAttribute("request", requestService.getRequestById(orderId));
+        return "e_request/request/adminShow";
+    }
+
     @PostMapping("/applyRequest")
-    public String applyRequest(@RequestParam("request_id") long requestId){
+    public String applyRequest(@RequestParam("request_id") long requestId) throws RequestNotExistsException {
         requestService.applyOrder(requestId);
+        return "redirect:/e_request/admin/all";
+    }
+
+    @PostMapping("/declineRequest")
+    public String declineRequest(@RequestParam("request_id") long requestId, @RequestParam("reason") String reason, @RequestParam("final") boolean finalDecision){
+        requestService.declineOrder(requestId, reason, finalDecision);
         return "redirect:/e_request/admin/all";
     }
 }
