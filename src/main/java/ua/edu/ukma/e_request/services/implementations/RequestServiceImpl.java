@@ -3,6 +3,7 @@ package ua.edu.ukma.e_request.services.implementations;
 import org.springframework.stereotype.Service;
 import ua.edu.ukma.e_request.controller.CreateOrderController;
 import ua.edu.ukma.e_request.entities.Request;
+import ua.edu.ukma.e_request.entities.ThirdPartyToken;
 import ua.edu.ukma.e_request.entities.ThirdPartyToken_Request;
 import ua.edu.ukma.e_request.repositories.RequestDAO;
 import ua.edu.ukma.e_request.repositories.ThirdPartyTokenDAO;
@@ -51,7 +52,7 @@ public class RequestServiceImpl implements RequestService {
     public void applyOrder(long requestId) throws RequestNotExistsException {
         Request current = requestDao.findById(requestId).orElseThrow(RequestNotExistsException::new);
         if (current.getCurrentStatus().equals(RequestStatus.APPROVED_BY_MENTOR)) {
-            List<ThirdPartyToken_Request> tokens = thirdPartyTokenDAO.getTokensByRequest(current.getId());
+            List<ThirdPartyToken> tokens = thirdPartyTokenDAO.getTokensByRequest(current.getId());
             if (tokens.size() == 0) current.setCurrentStatus(RequestStatus.APPROVED_BY_THIRD);
             current.setCurrentStatus(RequestStatus.APPROVED_BY_DEAN);
         }
