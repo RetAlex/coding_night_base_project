@@ -29,7 +29,7 @@ public class StatusChanges implements Serializable{
     private RequestStatus status;
 
     @ManyToOne
-    @JoinTable(name = "request_id")
+    @JoinColumn(name = "request_id")
     private Request request;
 
     @Column(columnDefinition = "TEXT")
@@ -37,14 +37,27 @@ public class StatusChanges implements Serializable{
 
     @Override
     public String toString() {
+        String previousStatusId = (previousStatus == null) ? "null" : String.valueOf(previousStatus.id);
         return String.format(
-                "id=%d, timestamp=%s, previousStatusId=%d, status=%s, request_id=%d, refusalDescription=%s",
+                "id=%d, timestamp=%s, previousStatusId=%s, status=%s, request_id=%d, refusalDescription=%s",
                 id,
-                timestamp.toString(),
-                previousStatus.id,
+                String.valueOf(timestamp),
+                previousStatusId,
                 status.name(),
                 request.getId(),
                 refusalDescription
         );
+    }
+
+    public void setRequest(Request request) {
+        this.request = request;
+    }
+
+    public void setStatus(RequestStatus status) {
+        this.status = status;
+    }
+
+    public void setTimestamp(Timestamp timestamp) {
+        this.timestamp = timestamp;
     }
 }
