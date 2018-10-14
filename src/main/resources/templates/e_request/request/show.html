@@ -107,6 +107,30 @@
 							<button class="fs-submit">Додати</button>
 						</form>
 					</div>
+					
+					<div class="main__container-list">
+						<ul>
+							<li>antoshka</li>
+							<li>Виховує студентів</li>
+							<li>099 99 99 999</li>
+							<li>Викладач</li>
+							<li>8</li>
+						</ul>
+						<ul>
+							<li>antoshka</li>
+							<li>Виховує студентів</li>
+							<li>099 99 99 999</li>
+							<li>Викладач</li>
+							<li>8</li>
+						</ul>
+					</div>
+
+					<form action="/e_request/upload_file" method="post" enctype="multipart/form-data">
+						<input type="file" name="file" accept="application/msword, text/plain" class="input__upload">
+						<input type="number" name="userId" hidden>
+						<input type="number" name="eventId" hidden>
+						<button class="fs-submit">Submit</button>
+					</form>
 
 					<h3>Репетиція</h3>
 					<div class="main__container-repetition">
