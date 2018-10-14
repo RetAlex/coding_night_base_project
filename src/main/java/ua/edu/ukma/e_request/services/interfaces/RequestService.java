@@ -29,6 +29,7 @@ public interface RequestService {
     void applyOrder(long requestId) throws RequestNotExistsException;
 
     void declineOrder(long requestId, String reason, boolean finalDecision) throws RequestNotExistsException;
+
     List<RequestMinInfo> getRequestsForAdmin(int page);
 
     void assignToMentor(long orderId, long mentorId);

@@ -22,8 +22,7 @@ public class StatusChanges implements Serializable{
     @CreationTimestamp
     private Timestamp timestamp;
 
-    @OneToOne
-    @JoinColumn(name = "prev_change_id")
+    @Column(name="previousStatus")
     private RequestStatus previousStatus;
 
     @Enumerated(EnumType.STRING)
