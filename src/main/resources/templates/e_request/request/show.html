@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js" style="height: initial">
+<html lang="en" class="no-js" style="height: initial" xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
@@ -39,11 +39,11 @@
 			<div class="main__block">
 				<article class="main__container">
 					<div class="container__title">
-						<h3>Похід за грибами</h3>
+						<h3 th:text="${request.eventName}">Похід за грибами</h3>
 
 						<div class="container__timestamp">
-							<span>24/10/18 14:30</span>
-							<span>24/10/18 16:30</span>
+							<span th:text="${request.startDateTime}">24/10/18 14:30</span>
+							<span th:text="${request.finishDateTime}">24/10/18 16:30</span>
 						</div>
 					</div>
 
@@ -51,14 +51,14 @@
 						<div class="container__title-name">
 							<span>Василь</span>
 
-							<span class="status">розглядається</span>
+							<span class="status" th:text="${request.currentStatus}">розглядається</span>
 						</div>
 					</div>
 
-					<p class="main__container-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium assumenda commodi cum cumque delectus doloremque dolores dolorum ea eligendi enim esse excepturi explicabo fugiat inventore ipsam labore magnam maxime minima nam, natus nemo neque nihil possimus quibusdam ratione reiciendis rem repellat sapiente sint voluptatem! Earum facilis iure molestiae nisi perferendis.</p>
+					<p class="main__container-text" th:text="${request.purpose}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium assumenda commodi cum cumque delectus doloremque dolores dolorum ea eligendi enim esse excepturi explicabo fugiat inventore ipsam labore magnam maxime minima nam, natus nemo neque nihil possimus quibusdam ratione reiciendis rem repellat sapiente sint voluptatem! Earum facilis iure molestiae nisi perferendis.</p>
 
 					<div class="main__container-room">
-						<h3>Місце проведення заходу:</h3>&nbsp;<span>Аудиторія номер</span>&nbsp;<span>501</span>
+						<h3>Місце проведення заходу:</h3>&nbsp;<span th:text="${'Корпус '+request.roomName.building}">Аудиторія номер</span>&nbsp;<span th:text="${'аудиторія '+request.roomName.name}">501</span>
 					</div>
 
 					<div class="main__block">
@@ -112,12 +112,12 @@
 					<div class="main__container-repetition">
 
 						<div class="main__container-room">
-							<h3>Місце проведення заходу:</h3>&nbsp;<span>Аудиторія номер</span>&nbsp;<span>501</span>
+							<h3>Місце проведення репетиції:</h3>&nbsp;<span th:text="${'Корпус '+request.roomName.building}">Аудиторія номер</span>&nbsp;<span th:text="${'аудиторія '+request.roomName.name}">501</span>
 						</div>
 
 						<div class="container__timestamp">
-							<span>24/10/18 14:30</span>
-							<span>24/10/18 16:30</span>
+							<span th:text="${prepStartDateTime}">24/10/18 14:30</span>
+							<span th:text="${prepFinishDateTime}">24/10/18 16:30</span>
 						</div>
 					</div>
 

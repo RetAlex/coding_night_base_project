@@ -33,4 +33,10 @@ public class AdminRequestController {
         requestService.applyOrder(requestId);
         return "redirect:/e_request/admin/all";
     }
+
+    @PostMapping("/declineRequest")
+    public String declineRequest(@RequestParam("request_id") long requestId, @RequestParam("reason") String reason, @RequestParam("final") boolean finalDecision){
+        requestService.declineOrder(requestId, reason, finalDecision);
+        return "redirect:/e_request/admin/all";
+    }
 }
