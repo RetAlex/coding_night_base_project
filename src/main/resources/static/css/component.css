@@ -61,7 +61,7 @@
 	display: block;
 	margin-bottom: 2.5em;
 	color: #3b3f45;
-	content: 'Review & Submit';
+	content: 'Огляд та підтвердження';
 	font-weight: 700;
 	font-size: 1.85em;
 }
@@ -656,6 +656,8 @@ button.fs-continue {
 	border-radius: 40px;
 	font-weight: 700;
 	color: rgba(0,0,0,0.4);
+
+	transition: color .3s ease, background-color .3s ease;
 }
 
 .fs-form-overview .fs-submit,
@@ -682,6 +684,7 @@ button.fs-submit:focus,
 button.fs-continue:hover {
 	background: #232529;
 	color: #fff;
+
 }
 
 .fs-continue::after {
@@ -850,6 +853,12 @@ button.fs-continue:hover {
 	display: flex;
 }
 
+.main__block {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+}
+
 .main__container {
 	width: 100%;
 	padding: .625em;
@@ -858,6 +867,7 @@ button.fs-continue:hover {
 }
 
 .main__block {
+	width: 100%;
 	padding: 1.125em;
 }
 
@@ -884,6 +894,7 @@ button.fs-continue:hover {
 }
 
 .status {
+	margin-left: .625em;
 	background: #f5f5;
 	border-radius: 28px;
 	padding: .313em 1.25em;
@@ -897,7 +908,40 @@ button.fs-continue:hover {
 }
 
 .main__container-organizators {
+	width: 50%;
+	margin-bottom: 1.25em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
 
+.container__form {
+	width: 35%;
+	margin-bottom: .938em;
+}
+
+.container__form select {
+	padding: .938em;
+	width: 100%;
+	border: none;
+	outline: none;
+	border-bottom: 2px solid #3b3f45;
+}
+
+.container__form input {
+	width: 100%;
+	padding: .625em;
+	border: none;
+	outline: none;
+	border-bottom: 2px solid #3b3f45;
+	background-color: transparent;
+}
+
+.pr {
+	width: 30px;
+	height: 30px;
+	object-fit: contain;
 }
 
 @-webkit-keyframes animHidePrev {
