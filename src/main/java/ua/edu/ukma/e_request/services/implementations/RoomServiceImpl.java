@@ -5,6 +5,9 @@ import ua.edu.ukma.e_request.repositories.RoomDAO;
 import ua.edu.ukma.e_request.resources.dto.FondRoom;
 import ua.edu.ukma.e_request.services.interfaces.RoomService;
 
+import java.util.List;
+import java.util.Map;
+
 @Service
 public class RoomServiceImpl implements RoomService {
 
@@ -14,4 +17,8 @@ public class RoomServiceImpl implements RoomService {
         this.roomDAO = roomDAO;
     }
 
+    @Override
+    public Map<String, List<String>> getAvailibleRoomsForEvents() {
+        return null;
+    }
 }
