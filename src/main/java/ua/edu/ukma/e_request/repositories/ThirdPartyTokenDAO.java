@@ -16,4 +16,5 @@ public interface ThirdPartyTokenDAO extends JpaRepository<ThirdPartyToken, Strin
 
     @Query(value = "select * from e_third_party_token t where t.request_id=?1", nativeQuery = true)
     List<ThirdPartyToken> getTokensByRequest(Long requesId);
+
 }

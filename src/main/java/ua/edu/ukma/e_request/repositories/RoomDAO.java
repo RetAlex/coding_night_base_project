@@ -16,4 +16,5 @@ public interface RoomDAO extends JpaRepository<Room, Integer> {
     @Query(nativeQuery = true, value = "SELECT * FROM e_rooms WHERE user_id=?")
     List<Room> findByUser(Long userId);
 
+
 }
