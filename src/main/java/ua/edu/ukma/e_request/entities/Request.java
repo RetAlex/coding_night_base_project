@@ -3,17 +3,13 @@ package ua.edu.ukma.e_request.entities;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
 import ua.edu.ukma.e_request.controller.CreateOrderController;
 import ua.edu.ukma.e_request.resources.dto.RequestMinInfo;
 import ua.edu.ukma.e_request.resources.enums.RequestStatus;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Timestamp;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Entity of Request for event organization
@@ -67,7 +63,6 @@ public class Request implements Serializable {
     @Column(name = "request_id")
     private Long id;
 
-
     @Column(nullable = false)
     private String eventName;
 
@@ -120,7 +115,7 @@ public class Request implements Serializable {
     private Set<ThirdPartyToken> thirdSides = new HashSet<>();
 
     @OneToMany(mappedBy = "request")
-    private Set<TechRequest> techRequests = new HashSet<>();
+    private List<TechRequest> techRequests = new ArrayList<>();
 
     @Enumerated(EnumType.STRING)
     @Column(length = 64, name = "currentStatus")
@@ -140,9 +135,10 @@ public class Request implements Serializable {
 //        this.expectedAmountOfInvolved = createRequestForm.getExpectedAmountOfInvolved();
 //        this.techRequests = createRequestForm.getTechRequests();
        this.prepFinishDateTime = createRequestForm.getPrepDateTo();
-       this.roomName = createRequestForm.getRoom();
-       this.preparationRoomName = createRequestForm.getPrepRoom();
+       this.roomName = new Room(createRequestForm.getRoom());
+       if(createRequestForm.getPrepRoom()==0) this.preparationRoomName=null;
+       else this.preparationRoomName = new Room(createRequestForm.getPrepRoom());
         this.prepStartDateTime = createRequestForm.getPrepDateFrom();
-        this.currentStatus =RequestStatus.PENDING_FOR_SUBMITION;
+        this.currentStatus = RequestStatus.PENDING_FOR_SUBMITION;
     }
 }

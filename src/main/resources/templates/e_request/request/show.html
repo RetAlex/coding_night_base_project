@@ -109,26 +109,19 @@
 					</div>
 					
 					<div class="main__container-list">
-						<ul>
-							<li>antoshka</li>
-							<li>Виховує студентів</li>
-							<li>099 99 99 999</li>
-							<li>Викладач</li>
-							<li>8</li>
-						</ul>
-						<ul>
-							<li>antoshka</li>
-							<li>Виховує студентів</li>
-							<li>099 99 99 999</li>
-							<li>Викладач</li>
-							<li>8</li>
+						<ul th:each="teamMember:${team}">
+							<li th:text="${teamMember.getUser().getUsername()}">antoshka</li>
+							<li th:text="${teamMember.getResponsibility()}">Виховує студентів</li>
+							<li th:text="${teamMember.getPhoneNumber()}">099 99 99 999</li>
+							<li th:text="${teamMember.getSpecialisation()}">Викладач</li>
+							<li th:text="${teamMember.getHours()}">8</li>
 						</ul>
 					</div>
 
-					<form action="/e_request/upload_file" method="post" enctype="multipart/form-data">
+					<form action="/e_request/requests/upload_file" method="post" enctype="multipart/form-data">
 						<input type="file" name="file" accept="application/msword, text/plain" class="input__upload">
-						<input type="number" name="userId" hidden>
-						<input type="number" name="eventId" hidden>
+						<input type="number" name="userId" hidden th:value="1">
+						<input type="number" name="eventId" hidden th:value="${request.getId()}">
 						<button class="fs-submit">Submit</button>
 					</form>
 

@@ -42,9 +42,9 @@
 						<li data-input-trigger>
 							<label class="fs-field-label fs-anim-upper" for="q3">PR</label>
 							<div class="fs-radio-group fs-radio-custom clearfix fs-anim-lower">
-								<span><input style="opacity: 0" id="q3b" name="pr" type="checkbox" value="facebook"/><label for="q3b" class="radio-conversion">Facebook</label></span>
-								<span><input style="opacity: 0" id="q3c" name="pr" type="checkbox" value="viber"/><label for="q3c" class="radio-social">Viber</label></span>
-								<span><input style="opacity: 0" id="q3a" name="pr" type="checkbox" value="telegram"/><label for="q3a" class="radio-mobile">Telegram</label></span>
+								<span><input style="opacity: 0" id="q3b" name="pr" type="checkbox" value="Facebook"/><label for="q3b" class="radio-conversion">Facebook</label></span>
+								<span><input style="opacity: 0" id="q3c" name="pr" type="checkbox" value="Email"/><label for="q3c" class="radio-social">Viber</label></span>
+								<span><input style="opacity: 0" id="q3a" name="pr" type="checkbox" value="Telegram"/><label for="q3a" class="radio-mobile">Telegram</label></span>
 							</div>
 						</li>
 
@@ -69,7 +69,7 @@
 
                             <div>
                                 <label class="fs-field-label fs-anim-upper" for="q7b">Цільова аудиторія</label>
-                                <input class="fs-anim-lower" id="q7b" name="q2" type="text" placeholder="Цей захід для..."
+                                <input class="fs-anim-lower" id="q7b" name="audition" type="text" placeholder="Цей захід для..."
                                        required/>
                             </div>
 
@@ -105,7 +105,7 @@
                 </li>
                 <li>
                     <label class="fs-field-label fs-anim-upper" for="q7a">Куратор</label>
-                    <select class="cs-select cs-skin-boxes fs-anim-lower">
+                    <select class="cs-select cs-skin-boxes fs-anim-lower" name="curator">
                         <option th:each="mentor:${assignableMentors}" th:text="${mentor.getUsername()}" th:value="${mentor.getId()}" value="glybovets" data-class="color-588c75">Глибовець</option>
                     </select>
                 </li>
