@@ -38,4 +38,10 @@ public class AdminRequestController {
         requestService.declineOrder(requestId, reason, finalDecision);
         return "redirect:/e_request/admin/all";
     }
+
+    @PostMapping("/{requestId}/inviteThird")
+    public String inviteThird(@RequestParam String email, @PathVariable("requestId") long requestId){
+        requestService.addThirdPartyToken(email, requestId);
+        return "";
+    }
 }

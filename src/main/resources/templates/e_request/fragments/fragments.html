@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
     <th:block th:fragment="roomOption(rooms, key)">
-        <option th:each="room:${rooms.get(key)}" th:text="${room.building+' '+room.number}">ROOM</option>
-        <option th:if="${rooms.size()==0}">Кімнати цієї категорії поки недоступні</option>
+        <option th:each="room:${rooms.get(key)}" th:value="${room.id}" th:text="${room.name+' ('+room.building+')'}">ROOM</option>
+        <option th:if="${rooms.get(key) eq null}">Кімнати цієї категорії поки недоступні</option>
     </th:block>
 </html>

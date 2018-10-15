@@ -1,7 +1,7 @@
 package ua.edu.ukma.e_request.services.implementations;
 
 import org.springframework.stereotype.Service;
-import ua.edu.ukma.e_request.controller.CreateOrderController;
+import ua.edu.ukma.e_request.controller.CreateRequestController;
 import ua.edu.ukma.e_request.entities.Request;
 import ua.edu.ukma.e_request.entities.StatusChanges;
 import ua.edu.ukma.e_request.entities.ThirdPartyToken;
@@ -38,7 +38,7 @@ public class RequestServiceImpl implements RequestService {
     }
 
     @Override
-    public long createRequest(CreateOrderController.CreateRequestForm createRequestForm, long studentId) {
+    public long createRequest(CreateRequestController.CreateRequestForm createRequestForm, long studentId) {
         return requestDao.save(new Request(createRequestForm, studentId)).getId();
     }
 

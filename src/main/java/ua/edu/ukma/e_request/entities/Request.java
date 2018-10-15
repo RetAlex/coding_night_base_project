@@ -3,7 +3,7 @@ package ua.edu.ukma.e_request.entities;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import ua.edu.ukma.e_request.controller.CreateOrderController;
+import ua.edu.ukma.e_request.controller.CreateRequestController;
 import ua.edu.ukma.e_request.resources.dto.RequestMinInfo;
 import ua.edu.ukma.e_request.resources.enums.RequestStatus;
 
@@ -121,7 +121,7 @@ public class Request implements Serializable {
     @Column(length = 64, name = "currentStatus")
     private RequestStatus currentStatus;
 
-    public Request(CreateOrderController.CreateRequestForm createRequestForm, long studentId) {
+    public Request(CreateRequestController.CreateRequestForm createRequestForm, long studentId) {
        this.eventName = createRequestForm.getTitle();
         this.mentor = new User(createRequestForm.getCurator());
        this.student = new User(studentId);

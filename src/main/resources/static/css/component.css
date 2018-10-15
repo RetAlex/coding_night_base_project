@@ -143,10 +143,6 @@ button.fs-continue,
 	list-style: none;
 }
 
-.fs-form-overview ol {
-	max-width: ;
-}
-
 .fs-fields > li {
 	position: relative;
 	z-index: 1;
