@@ -131,6 +131,7 @@ public class Request implements Serializable {
         this.mentor = new User(createRequestForm.getCurator());
        this.student = new User(studentId);
        this.purpose = createRequestForm.getAim();
+       this.techRequests = createRequestForm.getTechs();
  //      this.expectedResult = createRequestForm.getExpectedResult();
 //       this.targetAudience = createRequestForm.get
 //       this.isSecurityNeeded = createRequestForm.getIsSecurityNeeded();

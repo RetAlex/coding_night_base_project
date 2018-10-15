@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ua.edu.ukma.e_request.entities.Room;
+import ua.edu.ukma.e_request.entities.TechRequest;
 import ua.edu.ukma.e_request.resources.enums.PRMethods;
 import ua.edu.ukma.e_request.resources.enums.Role;
 import ua.edu.ukma.e_request.services.interfaces.RequestService;
@@ -67,6 +68,7 @@ public class CreateOrderController {
         @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
         private Date dateTo;
         private Set<PRMethods> pr;
+        private Set<TechRequest> techs;
         @NotNull
         @UserRole(requiredRole = {Role.MENTOR})
         private long curator;
