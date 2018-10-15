@@ -8,6 +8,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ConfigurationProperties(prefix = "e-request")
 public class E_RequestResources {
+    public static String[] roomHoldersNames = new String[] {"room", "kmc", "library", "museum"};
+
     private String smtpHost;
     private String emailUsername;
     private String emailPassword;

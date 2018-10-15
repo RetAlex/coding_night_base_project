@@ -18,10 +18,7 @@
 
     <!-- All hidden elements to use later-->
     <div style="display: none">
-        <select id="room"><option>ROOM</option></select>
-        <select id="kmc"><option>KMC</option></select>
-        <select id="library"><option>LIBRARY</option></select>
-        <select id="museum"><option>MUSEUM</option></select>
+        <select th:id="${roomHolder}" th:each="roomHolder:${@e_RequestResources.roomHoldersNames}"><th:block th:replace="e_request/fragments/fragments :: roomOption(${assignableRooms}, ${roomHolder})">ROOM</th:block></select>
     </div>
 
     <div class="fs-form-wrap" id="fs-form-wrap">
@@ -59,10 +56,10 @@
 						<li data-input-trigger>
 							<label for="q4" class="fs-field-label fs-anim-upper"></label>
 							<div class="fs-radio-group fs-radio-custom clearfix fs-anim-lower">
-								<span><input id="q3d" name="location" type="radio" onclick="chooseRoom('room')" value="room"/><label for="q3d" class="radio-room">Корпус/Аудиторія</label></span>
-								<span><input id="q3e" name="location" type="radio" onclick="chooseRoom('kmc')" value="kmc"/><label for="q3e" class="radio-art">КМЦ</label></span>
-								<span><input id="q3f" name="location" type="radio" onclick="chooseRoom('library')" value="library"/><label for="q3f" class="radio-library">Наукова бібліотека</label></span>
-								<span><input id="q3g" name="location" type="radio" onclick="chooseRoom('museum')" value="museum"/><label for="q3g" class="radio-museum">Музей</label></span>
+								<span th:each="roomHolder:${@e_RequestResources.roomHoldersNames}"><input th:id="${'q3'+roomHolder}" name="location" type="radio" th:attr="onclick=${'chooseRoom('''+roomHolder+''')'}" th:value="${roomHolder}"/><label th:for="${'q3'+roomHolder}" th:attr="style=${'background-image:url(/assets/img/roomHolders/'+roomHolder+'.svg)'}" class="radio-room" th:text="${roomHolder}">Корпус/Аудиторія</label></span>
+								<!--<span><input id="q3e" name="location" type="radio" onclick="chooseRoom('kmc')" value="kmc"/><label for="q3e" class="radio-art">КМЦ</label></span>-->
+								<!--<span><input id="q3f" name="location" type="radio" onclick="chooseRoom('library')" value="library"/><label for="q3f" class="radio-library">Наукова бібліотека</label></span>-->
+								<!--<span><input id="q3g" name="location" type="radio" onclick="chooseRoom('museum')" value="museum"/><label for="q3g" class="radio-museum">Музей</label></span>-->
 							</div>
                             <div class="fs-anim-lower" id="room-container">
 
@@ -155,7 +152,7 @@
         const container = document.getElementById('room-container');
 
         const availableRooms = document.getElementById(checked).cloneNode(true);
-        availableRooms.name='room';
+        availableRooms.name=checked;
 
         container.innerHTML = "<label class=\"fs-field-label fs-anim-upper\" for=\"q2\">Номер аудиторії</label>\n";
         container.append(availableRooms);

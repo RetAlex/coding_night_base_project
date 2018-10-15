@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import ua.edu.ukma.e_request.entities.Room;
 import ua.edu.ukma.e_request.entities.TechRequest;
-
 import ua.edu.ukma.e_request.resources.enums.PRMethods;
 import ua.edu.ukma.e_request.resources.enums.Role;
 import ua.edu.ukma.e_request.services.interfaces.RequestService;
@@ -24,6 +24,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 @Controller
@@ -42,7 +43,8 @@ public class CreateOrderController {
     @GetMapping("/create")
     public String renderPage(Model model){
         model.addAttribute("assignableMentors", userService.getUserByRole(Role.MENTOR));
-        model.addAttribute("assignableRooms");
+        model.addAttribute("assignableRooms", new HashMap<String, List<Room>>());
+//        model.addAttribute("assignableRooms", roomService.getAvailibleRoomsForEvents());
         return "e_request/creation/create_request";
     }
 
