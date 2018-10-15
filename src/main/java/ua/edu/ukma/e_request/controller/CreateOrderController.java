@@ -15,6 +15,7 @@ import ua.edu.ukma.e_request.entities.TechRequest;
 import ua.edu.ukma.e_request.resources.enums.PRMethods;
 import ua.edu.ukma.e_request.resources.enums.Role;
 import ua.edu.ukma.e_request.services.interfaces.RequestService;
+import ua.edu.ukma.e_request.services.interfaces.RoomService;
 import ua.edu.ukma.e_request.services.interfaces.UserService;
 import ua.edu.ukma.e_request.utils.validator.InFuture;
 import ua.edu.ukma.e_request.utils.validator.UserRole;
@@ -30,15 +31,18 @@ import java.util.List;
 public class CreateOrderController {
     private final RequestService requestService;
     private final UserService userService;
+    private final RoomService roomService;
 
-    public CreateOrderController(RequestService requestService, UserService userService) {
+    public CreateOrderController(RequestService requestService, UserService userService, RoomService roomService) {
         this.requestService = requestService;
         this.userService = userService;
+        this.roomService = roomService;
     }
 
     @GetMapping("/create")
     public String renderPage(Model model){
         model.addAttribute("assignableMentors", userService.getUserByRole(Role.MENTOR));
+        model.addAttribute("assignableRooms");
         return "e_request/creation/create_request";
     }
 
