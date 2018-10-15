@@ -112,7 +112,7 @@ public class Request implements Serializable {
             joinColumns = { @JoinColumn(name = "request_id") },
             inverseJoinColumns = { @JoinColumn(name = "token") }
     )
-    private Set<ThirdPartyToken> thirdSides = new HashSet<>();
+    private List<ThirdPartyToken> thirdSides = new ArrayList<>();
 
     @OneToMany(mappedBy = "request")
     private List<TechRequest> techRequests = new ArrayList<>();
